@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+using System.Collections.Generic;
+
+>>>>>>> a7b2030 (Input item rule)
 namespace ManageStore
 {
     public struct Item
@@ -13,10 +18,16 @@ namespace ManageStore
 
     public struct Store
     {
+<<<<<<< HEAD
         public Item[] ItemsList;
         public string[] Label;
     }
 
+=======
+        public List<Item> ItemsList;
+        public List<string> Label;
+    }
+>>>>>>> a7b2030 (Input item rule)
     public struct Date
     {
         public int Month;
