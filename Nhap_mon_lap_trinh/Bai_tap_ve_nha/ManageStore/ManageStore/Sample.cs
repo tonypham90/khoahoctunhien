@@ -136,7 +136,7 @@ namespace ManageStore
                 id[indexofelement] = item.Id;
                 indexofelement += 1;
             }
-
+            
             Console.WriteLine(note);
             packaged.Id = RanId(warehouse.ItemsList);
 =======
