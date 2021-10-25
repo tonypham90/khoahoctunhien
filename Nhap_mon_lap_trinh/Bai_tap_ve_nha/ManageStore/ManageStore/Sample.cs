@@ -33,7 +33,6 @@ namespace ManageStore
         {
             string newid = null;
             bool duplicateCheck = true;
-            int count = 2;
             while (duplicateCheck)
             {
                 newid = new string(Enumerable.Repeat(Chars, 4).Select(s => s[ran.Next(s.Length)]).ToArray());
