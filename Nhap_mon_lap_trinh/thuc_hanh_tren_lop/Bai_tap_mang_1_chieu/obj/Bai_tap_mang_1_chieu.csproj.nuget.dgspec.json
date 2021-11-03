@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tonypham/RiderProjects/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/Bai_tap_mang_1_chieu.csproj": {}
+    "/Users/tonypham/Documents/GitHub/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/Bai_tap_mang_1_chieu.csproj": {}
   },
   "projects": {
-    "/Users/tonypham/RiderProjects/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/Bai_tap_mang_1_chieu.csproj": {
+    "/Users/tonypham/Documents/GitHub/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/Bai_tap_mang_1_chieu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tonypham/RiderProjects/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/Bai_tap_mang_1_chieu.csproj",
+        "projectUniqueName": "/Users/tonypham/Documents/GitHub/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/Bai_tap_mang_1_chieu.csproj",
         "projectName": "Bai_tap_mang_1_chieu",
-        "projectPath": "/Users/tonypham/RiderProjects/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/Bai_tap_mang_1_chieu.csproj",
+        "projectPath": "/Users/tonypham/Documents/GitHub/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/Bai_tap_mang_1_chieu.csproj",
         "packagesPath": "/Users/tonypham/.nuget/packages/",
-        "outputPath": "/Users/tonypham/RiderProjects/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/obj/",
+        "outputPath": "/Users/tonypham/Documents/GitHub/khoahoctunhien/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/Bai_tap_mang_1_chieu/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/tonypham/.nuget/NuGet/NuGet.Config"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
