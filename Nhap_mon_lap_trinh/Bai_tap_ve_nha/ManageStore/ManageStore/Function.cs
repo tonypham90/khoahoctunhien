@@ -312,6 +312,8 @@ namespace ManageStore
                         Print.EndSeparate();
                         break;
                     case 1:
+                        // Print.MidSeparate();
+                        // Console.WriteLine("Thay đổi thông tin lô hàng");
                         string idOfItem = stringmodifine.Inputlimittext("Mã lô hàng bạn muốn thay đổi", 4);
                         bool checkId = Check.DuplicateCheckId(idOfItem, data.ItemsList);
                         while (checkId == false) //kiểm tra nhập Mã lô hàng

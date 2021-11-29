@@ -4,7 +4,7 @@ namespace customtype
 {
     public struct DAGIAC
     {
-        public TOADO[] DSDinh;
+        public Toado[] DSDinh;
     }
     public class xulydagiac
     {
@@ -15,10 +15,10 @@ namespace customtype
                 Console.WriteLine(ghichu);
                 Console.WriteLine("So dinh cua da giac: ");
                 int countpoint = int.Parse(Console.ReadLine()!);
-                kq.DSDinh = new TOADO[countpoint];
+                kq.DSDinh = new Toado[countpoint];
                 for (int i = 0; i < kq.DSDinh.Length; i++)
                 {
-                    kq.DSDinh[i] = dothi.nhapToaDo($"Nhap toa do diem thu {i + 1}");
+                    kq.DSDinh[i] = Dothi.NhapToaDo($"Nhap toa do diem thu {i + 1}");
                 }
 
                 return kq;
@@ -29,10 +29,10 @@ namespace customtype
                 float chuVi = 0;
                 for (int i = 0; i < d.DSDinh.Length-1; i++)
                 {
-                    chuVi += dothi.SPACING(d.DSDinh[i], d.DSDinh[i + 1]);
+                    chuVi += Dothi.Spacing(d.DSDinh[i], d.DSDinh[i + 1]);
                 }
 
-                chuVi += dothi.SPACING(d.DSDinh[0], d.DSDinh[d.DSDinh.Length - 1]);
+                chuVi += Dothi.Spacing(d.DSDinh[0], d.DSDinh[d.DSDinh.Length - 1]);
                 return chuVi;
             }
     }
