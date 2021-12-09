@@ -37,3 +37,4 @@
 /Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Test/WebApplication2/WebApplication2/obj/Debug/net5.0/WebApplication2.pdb
 /Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Test/WebApplication2/WebApplication2/obj/Debug/net5.0/WebApplication2.genruntimeconfig.cache
 /Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Test/WebApplication2/WebApplication2/obj/Debug/net5.0/WebApplication2.csproj.CopyComplete
+/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Test/WebApplication2/WebApplication2/obj/Debug/net5.0/Razor/Views/Home/Té page.cshtml.g.cs

@@ -1,12 +1,12 @@
-$HEADER$using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace $NAMESPACE$
+namespace WebApplication2.Views.Home
 {
-    public class $CLASS$ : PageModel
+    public class Té_page : PageModel
     {
         public void OnGet()
         {
-	          $END$
+            
         }
     }
 }
