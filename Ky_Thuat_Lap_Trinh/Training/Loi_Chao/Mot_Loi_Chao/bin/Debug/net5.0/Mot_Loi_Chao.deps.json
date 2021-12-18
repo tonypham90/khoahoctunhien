@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Mot_Loi_Chao/1.0.0": {
+        "runtime": {
+          "Mot_Loi_Chao.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Mot_Loi_Chao/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
