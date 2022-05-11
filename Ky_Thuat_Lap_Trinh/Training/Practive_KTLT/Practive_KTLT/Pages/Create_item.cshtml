@@ -1,0 +1,37 @@
+@page
+@model Practive_KTLT.Pages.Create_item
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Tao San Pham</title>
+</head>
+<body>
+<h1>Tao san pham moi</h1>
+<div>
+    <form lang="vi" method="post">
+        <label>Ten san pham: </label>
+        <input type="text" name="Item_Name" value="abc"/><br/><br/>
+        <label for="name">Ma san pham:</label>
+        <input type="text" name="Item_Id" value="123"/><br/><br/>
+        <label for="name">Han su dung:</label>
+        <input type="date" name="Item_Exp" value=""/><br/><br/>
+        <label for="Name">Ngay san xuat:</label><br/>
+        <input type="date" name="Item_Mfg" value=""/><br/><br/>
+        <label for="name">So luong san pham:</label>
+        <input type="number" name="Item_Qty" value="1"/><br/><br/>
+        <label for="name">Gia san pham:</label>
+        <input type="number" name="Item_Price" step="0.01" min="0" value="4000"/><br/><br/>
+        <label for="name">Loai san pham:</label>
+        <input type="text" name="Item_Type" value="nuoc ngot"/><br/>
+        <input type="submit" value="tao"/>
+    </form>
+    @Model.text
+</div>
+</body>
+</html>

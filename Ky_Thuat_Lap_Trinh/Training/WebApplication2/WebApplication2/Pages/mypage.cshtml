@@ -1,0 +1,43 @@
+@page
+@using WebApplication2.Services
+@model WebApplication2.Pages.mypage
+
+@{
+    PhanSo a = default;
+    PhanSo b = default;
+    if (Request.Method == "POST")
+    {
+        a.TuSo = int.Parse(Request.Form["TusoA"]);
+        a.MauSo = int.Parse(Request.Form["MausoA"]);
+        b.TuSo = int.Parse((Request.Form["TusoB"]));
+        b.MauSo = int.Parse(Request.Form["MausoB"]);
+    }
+    PhanSo s = XuLyPhanSo.TongPhanSo(a, b);
+    string kq = XuLyPhanSo.InPhanSo(s);
+   
+    string currentTime = $"Current time is {DateTime.Now}";
+}
+
+<!DOCTYPE html>
+
+<html lang="english">
+<head>
+    <title></title>
+</head>
+<body>
+<form method="POST">
+    <label for="fnameA">Nhap tu so a:</label><br/>
+    <input type="text" name="TusoA" value="1"/><br/>
+    <label for="lnameA">Nhap mau so a:</label><br/>
+    <input type="text" name="MausoA" value="1"/><br/>
+    <label for="fnameB">Nhap tu so b:</label><br/>
+    <input type="text" name="TusoB" value="1"/><br/>
+    <label for="lnameB">Nhap mau so b:</label><br/>
+    <input type="text" name="MausoB" value="1"/><br/>
+    <input type="submit" value="Tinh"/>
+</form>
+
+<p>@currentTime</p><br/>
+<p>Ket qua phep cong phan so la @kq </p>
+</body>
+</html>

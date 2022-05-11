@@ -1,0 +1,48 @@
+@page
+@using WebApplication2.Services
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebApplication2.Data
+@model WebApplication2.Pages.phanso
+
+@{
+    string chuoi=string.Empty;
+    PhanSo a = default;
+    PhanSo b = default;
+    if (Request.Method == "POST")
+    {
+        a.TuSo = int.Parse(Request.Form["tuA"]);
+        a.MauSo = int.Parse(Request.Form["mauA"]);
+        b.TuSo = int.Parse((Request.Form["tuB"]));
+        b.MauSo = int.Parse(Request.Form["mauB"]);
+    }
+    PhanSo s = XuLyPhanSo.TongPhanSo(a, b);
+    bool notification=XuLyPhanSo.luuphanso(s);
+    chuoi = $"Du lieu da luu {notification}";
+   
+    string currentTime = $"Current time is {DateTime.Now}";
+    
+}
+
+<!DOCTYPE html>
+
+<html lang="english">
+<head>
+    <title></title>
+</head>
+<body>
+<form method="POST">
+    <label >Nhap tu so a:</label><br/>
+    <input type="text" name="tuA" value="1"/><br/>
+    <label >Nhap mau so a:</label><br/>
+    <input type="text" name="mauA" value="1"/><br/>
+    <label >Nhap tu so b:</label><br/>
+    <input type="text" name="tuB" value="1"/><br/>
+    <label >Nhap mau so b:</label><br/>
+    <input type="text" name="mauB" value="1"/><br/>
+    <input type="submit" value="Tinh"/>
+</form>
+
+<p>@currentTime</p><br/>
+<p>@chuoi </p>
+</body>
+</html>

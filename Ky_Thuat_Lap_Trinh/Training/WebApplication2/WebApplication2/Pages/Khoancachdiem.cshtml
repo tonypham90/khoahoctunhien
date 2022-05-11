@@ -1,0 +1,50 @@
+@page
+@using WebApplication2.Services
+@model WebApplication2.Pages.Khoancachdiem
+
+@{
+    Layout = null;
+    string chuoi = String.Empty;
+    Diem2D a, b;
+    a.X = 0;
+    a.Y = 0;
+    b.X = 0;
+    b.Y = 0;
+    if (Request.HasFormContentType)
+    {
+        a.X = double.Parse(Request.Form["atdX"]);
+        a.Y = double.Parse(Request.Form["atdY"]);
+        b.X = double.Parse(Request.Form["btdX"]);
+        b.Y = double.Parse((Request.Form["btdY"]));
+        double spacing = Khonggian.Spacing2Point(a, b);
+        chuoi = $"Khoan cach diem la {spacing.ToString("f2")}";
+
+    }
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Tinh khoan cach diem</title>
+</head>
+<body>
+<h1>Tinh khoan cach 2 diem</h1>
+<div>
+    <form method="post">
+        <label>Diem A Toa do X: </label>
+        <input type="text" name="atdX" value="@a.X"/>
+        <label>Y: </label>
+        <input type="text" name="atdY" value="@a.Y"/>
+        <br/>
+        <label>Diem B Toa do X: </label>
+        <input type="text" name="btdX" value="@b.X"/>
+        <label>Y: </label>
+        <input type="text" name="btdY" value="@b.Y"/> <br/>
+        <input type="submit" value="Tinh"/>
+    </form>
+    <h2>@chuoi</h2>
+</div>
+</body>
+</html>
