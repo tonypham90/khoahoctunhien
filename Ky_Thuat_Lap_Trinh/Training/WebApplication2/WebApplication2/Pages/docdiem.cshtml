@@ -1,0 +1,25 @@
+@page
+@using WebApplication2.Services
+@model WebApplication2.Pages.docdiem
+
+@{
+    Layout = "Shared/_Layout";
+    string text;
+    Diem2D a;
+    a = Khonggian.Docdiem();
+    text = $"Toa do diem x:{a.X} y:{a.Y}";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Bieu dien diem</title>
+</head>
+<body>
+<h1> Doc Diem</h1>
+<div>
+@text
+</div>
+</body>
+</html>

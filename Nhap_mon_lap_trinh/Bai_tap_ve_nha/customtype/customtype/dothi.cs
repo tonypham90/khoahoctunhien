@@ -2,38 +2,38 @@ using System;
 
 namespace customtype
 {
-    public struct TOADO
+    public struct Toado
     {
-        public float x;
-        public float y;
+        public float X;
+        public float Y;
     }
-    public class dothi
+    public class Dothi
     {
-        public static TOADO nhapToaDo(string ghichu)
+        public static Toado NhapToaDo(string ghichu)
         {
             Console.WriteLine(ghichu);
-            TOADO a;
+            Toado a;
             Console.WriteLine("Toa do x: ");
-            a.x = float.Parse(Console.ReadLine()!);
+            a.X = float.Parse(Console.ReadLine()!);
             Console.WriteLine("Toa do y: ");
-            a.y = float.Parse(Console.ReadLine()!);
+            a.Y = float.Parse(Console.ReadLine()!);
             return a;
         }
 
-        public static float SPACING(TOADO a, TOADO b)
+        public static float Spacing(Toado a, Toado b)
         {
             float kq,x,y;
-            x = a.x - b.x;
-            y = a.y - b.y;
+            x = a.X - b.X;
+            y = a.Y - b.Y;
             kq = (float)Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
             /*Console.WriteLine($"Khoan cach la: {kq:F} ");*/
             return kq;
         }
 
-        public static float ChuVi(TOADO a, TOADO b, TOADO c)
+        public static float ChuVi(Toado a, Toado b, Toado c)
         {
             float chuvi;
-            chuvi = dothi.SPACING(a, b) + dothi.SPACING(b, c) + dothi.SPACING(a, c);
+            chuvi = Dothi.Spacing(a, b) + Dothi.Spacing(b, c) + Dothi.Spacing(a, c);
             return chuvi;
         }
     }

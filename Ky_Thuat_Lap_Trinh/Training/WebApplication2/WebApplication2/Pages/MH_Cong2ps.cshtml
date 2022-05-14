@@ -1,0 +1,31 @@
+@page
+@model WebApplication2.Pages.MH_Cong2ps
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <form method="post">
+        <label for="tuso1">Nhap Tu 1:</label>
+        <input type="text" name="tua" value="@Model.A.TuSo"/>
+        <label for="mauso1">Nhap Mau 1:</label>
+        <input type="text" name="maua" value="@Model.A.MauSo"/>
+        <br/><br/>
+        <label for="tuso2">Nhap Tu 2:</label>
+        <input type="text" name="tub" value="@Model.B.TuSo"/>
+        <label for="mauso2">Nhap Mau 2:</label>
+        <input type="text" name="maub" value="@Model.B.MauSo"/>
+        <input type="submit" value="Tinh"/>
+    </form>
+    @Model.text
+</div>
+</body>
+</html>

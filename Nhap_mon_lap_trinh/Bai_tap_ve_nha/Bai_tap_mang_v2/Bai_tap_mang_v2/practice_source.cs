@@ -76,10 +76,7 @@ namespace Bai_tap_mang_v2
                     {
                         int lamdarow = matrixB.GetLength(0)-1-i;
                         int lamdacolumn = matrixA.GetLength(1)-1-j;
-                        if (lamdarow)
-                        {
-                            
-                        }
+
                     }
                 }
             }

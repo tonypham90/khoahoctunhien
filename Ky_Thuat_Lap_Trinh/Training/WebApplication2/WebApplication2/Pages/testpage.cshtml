@@ -1,0 +1,25 @@
+@page
+@model WebApplication2.Pages.testpage
+
+@{
+    // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    @Model.chuoi la @Model.love
+    
+     <form method="post">
+             <label>Nhap Diem a X: </label>
+             <input type="text" name="x" value="@Model.love"/>
+             <input type="submit" value="Tinh"/>
+         </form>
+</div>
+</body>
+</html>

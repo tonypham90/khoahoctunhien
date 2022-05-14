@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "AVAam+1MNhUX9QoWU4SQc3+aPpgsgF5h+sXRIJDYMkId9MqFOTZwpj4uUWyMljKKYat7YXZG08/fsnP5/oSIVg==",
+  "success": true,
+  "projectFilePath": "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/WebApplication2/WebApplication2/WebApplication2.csproj",
+  "expectedPackageFiles": [
+    "/Users/tonypham/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
