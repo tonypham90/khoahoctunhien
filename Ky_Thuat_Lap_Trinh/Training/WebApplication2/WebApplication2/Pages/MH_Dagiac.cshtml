@@ -1,0 +1,31 @@
+@page
+@using WebApplication2.Services
+@model WebApplication2.Pages.MH_Dagiac
+
+@{
+    Layout = "Shared/_Layout";
+    string resultText= String.Empty;
+    Dagiac t;
+    t= XulyDaGiac.Doc();
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Da Giac</title>
+</head>
+<body>
+<div>
+    <ul>
+        @{
+            for (int i = 0; i < t.DanhSachDinh.Length; i++)
+            {
+                <li>Diem @(i+1) @t.DanhSachDinh[i].X,@t.DanhSachDinh[i].Y</li>
+            }
+        }
+    </ul>
+</div>
+</body>
+</html>

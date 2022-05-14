@@ -1,0 +1,60 @@
+@page
+@using WebApplication2.Services
+@model WebApplication2.Pages.Tamgiac
+
+@{
+    // Layout = null;
+    string chuoi = String.Empty;
+    Rectangle t = new Rectangle();
+    t.A.X = 0;
+    t.A.Y = 0;
+    t.B.X = 0;
+    t.B.Y = 0;
+    t.C.X = 0;
+    t.C.Y = 0;
+    if (Request.HasFormContentType)
+    {
+        t.A.X = double.Parse(Request.Form["atdX"]);
+        t.A.Y = double.Parse(Request.Form["atdY"]);
+        t.B.X = double.Parse(Request.Form["btdX"]);
+        t.B.Y = double.Parse((Request.Form["btdY"]));
+        t.C.X = double.Parse(Request.Form["ctdX"]);
+        t.C.Y = double.Parse(Request.Form["ctdY"]);
+        bool result = Khonggian.SaveRectangle(t);
+        chuoi = $"Ketqualutru {result}";
+    }
+}
+
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <title>Tinh Tam Giac</title>
+</head>
+<body>
+<h1>Tinh chu vi tam giac voi dinh tam giac la 3 diem: a,b,c</h1>
+<div>
+    <form method="post">
+        <label>Nhap Diem a X: </label>
+        <input type="text" name="atdX" value=""/>
+        <label>Y: </label>
+        <input type="text" name="atdY" value="@t.A.Y"/>
+        <br/>
+        <label>Nhap Diem b X: </label>
+        <input type="text" name="btdX" value="@t.B.X"/>
+        <label>Y: </label>
+        <input type="text" name="btdY" value="@t.B.Y" required="true"/>
+        <br/>
+        <label>Nhap Diem c X: </label>
+        <input type="text" name="ctdX" value="@t.C.X"/>
+        <label>Y: </label>
+        <input type="text" name="ctdY" value="@t.C.Y"/>
+        <br/>
+        <input type="submit" value="Tinh" style="alignment: center"/>
+    </form>
+    @chuoi
+</div>
+@section Scripts
+{<div> this is rectangle page</div>}
+</body>
+</html>
