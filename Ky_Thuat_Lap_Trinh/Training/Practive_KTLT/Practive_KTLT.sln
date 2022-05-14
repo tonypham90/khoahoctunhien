@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practive_KTLT", "Practive_KTLT\Practive_KTLT.csproj", "{DA829FCD-0219-49B7-9D7F-D5AB49A7C807}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA829FCD-0219-49B7-9D7F-D5AB49A7C807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA829FCD-0219-49B7-9D7F-D5AB49A7C807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA829FCD-0219-49B7-9D7F-D5AB49A7C807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA829FCD-0219-49B7-9D7F-D5AB49A7C807}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
