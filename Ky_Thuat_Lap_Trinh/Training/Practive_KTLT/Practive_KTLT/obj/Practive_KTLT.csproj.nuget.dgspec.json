@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj": {}
+    "/Users/tonypham/Documents/GitHub/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj": {}
   },
   "projects": {
-    "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj": {
+    "/Users/tonypham/Documents/GitHub/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj",
+        "projectUniqueName": "/Users/tonypham/Documents/GitHub/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj",
         "projectName": "Practive_KTLT",
-        "projectPath": "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj",
+        "projectPath": "/Users/tonypham/Documents/GitHub/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj",
         "packagesPath": "/Users/tonypham/.nuget/packages/",
-        "outputPath": "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/obj/",
+        "outputPath": "/Users/tonypham/Documents/GitHub/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/tonypham/.nuget/NuGet/NuGet.Config"
