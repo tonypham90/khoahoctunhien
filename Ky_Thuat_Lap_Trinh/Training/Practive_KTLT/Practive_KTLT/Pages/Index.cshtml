@@ -1,10 +1,40 @@
 ﻿@page
+@using Practive_KTLT.Service
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<div class="text-black">
+    <h1 class="display-4">Tim kiem san pham</h1>
+    <form method="post">
+        <label for="fname">Nhap Tu Khoa:</label>
+        <input type="text" name="Keyword"/>
+        <input type="submit" value="Tim Kiem"/>
+    </form>
+    
+    <table class="table-responsive">
+        <tr>
+            <th>Ma</th>
+            <th>Ten</th>
+            <th>Gia</th>
+            <th>Soluong</th>
+            <th>Ngay san xuat</th>
+            <th>Ngay het han</th>
+        </tr>
+        @{
+            foreach (Item productItem  in @Model.ResList)
+            {
+                <tr>
+                    <td>@productItem.Id</td>
+                    <td>@productItem.Name</td>
+                    <td>@productItem.Price</td>
+                    <td>@productItem.Qty</td>
+                    <td>@productItem.Mfg</td>
+                    <td>@productItem.Exp</td>
+                </tr>
+            }
+        }
+    </table>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

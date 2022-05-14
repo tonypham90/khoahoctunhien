@@ -3,24 +3,49 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - Manage_Store</title>
+    <title>@ViewData["Title"] - Do An Quan ly Hang</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Manage_Store.styles.css" asp-append-version="true"/>
 </head>
 <body>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #8bb2ff;
+}
+</style>
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
-            <a class="navbar-brand" asp-area="" asp-page="/Index">Manage_Store</a>
+            <a class="navbar-brand" asp-area="" asp-page="/Index">Quan Ly Hang Hoa</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggle-icon"></span>
             </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+            <div class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <ul class="navbar-nav flex-grow-1 align-content-center">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Index" aria-atomic="true">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Store">Kho Hang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Import">Nhap Hang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Sale">Ban Hang</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>

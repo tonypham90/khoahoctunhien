@@ -1,5 +1,5 @@
 @page
-@model Practive_KTLT.Pages.Create_item
+@model Practive_KTLT.Pages.CreateItem
 
 @{
     
@@ -13,6 +13,11 @@
 </head>
 <body>
 <h1>Tao san pham moi</h1>
+<p>
+    <br/>
+    @DAL.StoreItem.StoreLFileInfo.FullName
+    <br/>text
+</p>
 <div>
     <form lang="vi" method="post">
         <label>Ten san pham: </label>
@@ -31,7 +36,8 @@
         <input type="text" name="Item_Type" value="nuoc ngot"/><br/>
         <input type="submit" value="tao"/>
     </form>
-    @Model.text
+    @Model.Text
+    
 </div>
 </body>
 </html>
