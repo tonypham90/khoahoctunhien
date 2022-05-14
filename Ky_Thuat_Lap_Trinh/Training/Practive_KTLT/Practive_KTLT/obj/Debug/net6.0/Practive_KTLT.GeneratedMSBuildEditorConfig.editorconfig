@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Pages/Create_item.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3JlYXRlX2l0ZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

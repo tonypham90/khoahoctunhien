@@ -1,0 +1,289 @@
+Index: ManageStore/Function.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\n\nnamespace ManageStore\n{\n    public class Function\n    {\n        //tao data dau vao\n        public static void CreateFirstData(ref Store data)\n        {\n            Print.EndSeparate();\n            bool auto = stringmodifine.Inputyn(\"Bạn có muốn tạo dữ liệu mẫu:(y/n): \");\n            //setup bắt đầu\n            switch (auto)\n            {\n                case true:\n                    data.Label = Sample.Type;\n                    Console.Write(\"Số lô hàng mẫu vào: \");\n                    int noPackaged = int.Parse(Console.ReadLine()!);\n                    data.ItemsList = new Item[noPackaged];\n                    for (int i = 0; i < noPackaged; i++)\n                    {\n                        string text = $\"Lô hàng thứ {i + 1}\";\n                        data.ItemsList[i] = ArrayManipulate.InputItem(text, data, true);\n                    }\n\n                    break;\n                default:\n                    //1st tao list label\n                    Console.Write(\"Số loại hàng bạn muốn tạo (số lượng): \");\n                    int noLable = int.Parse(Console.ReadLine()!);\n                    data.Label = new string[noLable];\n                    // Nhap loai hang\n                    for (int i = 0; i < noLable; i++)\n                    {\n                        string text = $\"Loại hàng thứ {i + 1}: \";\n                        Console.Write(text);\n                        string output = Console.ReadLine()!.ToUpper();\n                        bool check = Check.DuplicatecheckLable(output, data);\n                        while (check)\n                        {\n                            Console.Write(\"Giá trị đã tồn tại, vui lòng nhập lại: \");\n                            output = Console.ReadLine()!.ToUpper();\n                            check = Check.DuplicatecheckLable(output, data);\n                        }\n\n                        data.Label[i] = output;\n                    }\n\n                    //2nd tao hang hoa nhap kho\n                    int noPackagedmanual = stringmodifine.Inputnumber(\"Số lô hàng bạn muốn nhập kho: \", 1, 100);\n                    data.ItemsList = new Item[noPackagedmanual];\n                    for (int j = 0; j < noPackagedmanual; j++)\n                    {\n                        string text = $\"Lô hàng thứ {j + 1}\";\n                        data.ItemsList[j] = ArrayManipulate.InputItem(text, data, false);\n                    }\n\n                    break;\n            }\n        }\n\n        //Them du lieu co san vao data dung search item\n        public static void AddItemtoData(ref Store data, Item newItems)\n        {\n\n            Item[] newitItemslist = new Item[data.ItemsList.Length + 1];\n            for (int j = 0; j < data.ItemsList.Length; j++)\n            {\n                newitItemslist[j] = data.ItemsList[j];\n            }\n\n            data.ItemsList = newitItemslist;\n            data.ItemsList[^1] = newItems;\n        }\n\n\n        public static void EditItems(ref Item[] listitem)\n        {\n            string IdofItem = stringmodifine.Inputlimittext(\"Nhập mã hàng (4 ký tự): \", 4);\n            bool checkinput = false;\n            // while (expression)\n            // {\n            //     \n            // }\n            // Console.WriteLine(\"\");\n            // switch (@enum)\n            // {\n            //     \n            // }\n        }\n\n\n        //Chuc nang tim kiem du lieu\n        public static void FindItems(Store data)\n        {\n            Print.EndSeparate();\n            Store result;\n            result.ItemsList = new Item[0];\n            result.Label = data.Label;\n            Console.WriteLine(\"Lựa chọn các chức năng tìm kiếm sau:\\n1. Mã sản phầm\\n2.Tên sản phẩm\\n3. Loại hàng hóa\");\n            int userchoise = stringmodifine.Inputnumber(\"Lựa chọn của bạn (1~3)\", 1, 3);\n            string inputvalue;\n            switch (userchoise)\n            {\n                case 1: // tim kiem theo mã hàng\n                    //Console.Write(\"Nhập giá trị tìm kiếm theo mã hàng hóa (4 ký tự)\");\n                    inputvalue = stringmodifine.Inputlimittext(\"Tìm kiếm theo mã hàng hoán\\nNhập giá trị tìm kiếm\", 4);\n                    foreach (Item eachItem in data.ItemsList)\n                    {\n                        if (Check.Findvalue(inputvalue, eachItem.Id, false))\n                        {\n                            AddItemtoData(ref result, eachItem);\n                        }\n                    }\n\n                    break;\n                case 2: //Tim kiem theo ten san pham\n                    Console.WriteLine(\"Tìm kiếm theo tên sản phẩm\");\n                    Console.WriteLine(\n                        \"Chọn phương pháp tìm kiếm:\\n1. Tìm theo ký tự\\n2. Tìm theo viết tắt ký tự đầu mỗi từ\");\n                    int method = stringmodifine.Inputnumber(\"Phương pháp (1~2): \", 1, 2);\n                    bool fistletter;\n                    switch (method)\n                    {\n                        case 2:\n                            fistletter = true;\n                            Console.WriteLine(\"Vui lòng nhập các ký tự đầu của mỗi từ không khoản cách\");\n                            break;\n                        default:\n                            fistletter = false;\n                            Console.WriteLine(\"Vui lòng nhập từ bạn muốn tìm kiếm\");\n                            break;\n                    }\n\n                    Console.Write(\"Giá trị tìm kiếm: \");\n                    string input = Console.ReadLine()!.ToUpper();\n                    foreach (Item eachItem in data.ItemsList)\n                    {\n                        if (Check.Findvalue(input, eachItem.Name, fistletter))\n                        {\n                            AddItemtoData(ref result, eachItem);\n                        }\n                    }\n\n                    break;\n                case 3: //Tim kiem theo loai hang\n                    Console.WriteLine(\"Tìm kiếm theo loại hàng\");\n                    Console.WriteLine(\"Các loại hàng trong kho:\");\n                    for (int i = 0; i < data.Label.Length; i++)\n                    {\n                        Console.WriteLine($\"{i + 1}. {data.Label[i]}\");\n                    }\n\n                    int choise = stringmodifine.Inputnumber($\"Giá trị lựa chọn (1~{data.Label.Length})\", 1,\n                        data.Label.Length);\n                    string inputlabel = data.Label[choise - 1];\n                    foreach (Item eachItem in data.ItemsList)\n                    {\n                        if (Check.Findvalue(inputlabel, eachItem.Type, false))\n                        {\n                            AddItemtoData(ref result, eachItem);\n                        }\n                    }\n\n                    break;\n            }\n\n            if (result.ItemsList.Length < 1)\n            {\n                Console.WriteLine(\"Kết quả tìm kiếm: không có giá trị nào được tìm thấy\");\n            }\n            else\n            {\n                Print.PrintTable(result, true);\n            }\n\n\n        }\n        \n\n        // Sua thong tin\n        public static void EditLable(ref Store data)\n        {\n            Print.EndSeparate();\n            Console.WriteLine(\"Danh mục các loại hàng:\");\n            for (int i = 0; i < data.Label.Length; i++)\n            {\n                Console.WriteLine($\"{i + 1}. {data.Label[i]}\");\n            }\n\n            //khi xóa sẽ xóa hết dữ liệu cùng label và khi đổi thì toàn bộ cùng đổi\n            Console.WriteLine(\"Các lệnh sửa đổi loại hàng:\");\n            int userchoise = stringmodifine.Inputnumber(\"1. Thêm\\n2. Sửa\\n3. Xóa\", 1, 3);\n            switch (userchoise)\n            {\n                case 1: //Them gia tri cho label\n                    string input = Console.ReadLine()!.ToUpper();\n                    bool check = Check.DuplicatecheckLable(input, data);\n                    while (check == false)\n                    {\n                        Console.Write(\"Thông số nhập vào đã tồn tại,Vui lòng nhập lại giá trị: \");\n                        input = Console.ReadLine()!.ToUpper();\n                        check = Check.DuplicatecheckLable(input, data);\n                    }\n\n                    string[] newlabel = new string[data.Label.Length + 1];\n                    for (int j = 0; j < data.Label.Length; j++)\n                    {\n                        newlabel[j] = data.Label[j];\n                    }\n\n                    newlabel[^1] = input;\n                    break;\n                case 2: // Sua doi ten label va kiem tra items tu do\n                    Console.WriteLine(\"Việc sửa đổi tên loại hàng sẽ thay đổi tên loại hàng các lô hàng có tên loại hàng tương ứng\");\n                    bool changeShow = stringmodifine.Inputyn(\"Bạn có muốn tiếp tục thực hiện thay đổi?\");\n                    while (changeShow)\n                    {\n                        string labelchoise = ArrayManipulate.SelectLabel(\"Lựa chọn loại hàng hóa muốn thay đổi\", data);\n                        // Kiem tra list hàng có cùng mã loại hàng đã chọn\n                        string[] itemsIdListNeedChange = Array.Empty<string>();\n                        foreach (Item item in data.ItemsList)\n                        {\n                            if (item.Type == labelchoise)\n                            {\n                                ArrayManipulate.Addstring(ref itemsIdListNeedChange,item.Id);\n                            }\n                        }\n\n                        switch (itemsIdListNeedChange.Length)\n                        {\n                            case 0:\n                                Console.WriteLine(\"Không có lô hàng nào trong kho có loại hàng cùng mã đã chọn\");\n                                Console.Write($\"Bạn muốn đổi Loại {labelchoise} thành: \");\n                                string newLabelValue = Console.ReadLine()!.ToUpper();\n                                ArrayManipulate.ChangeUniqueValue(labelchoise,newLabelValue,ref data);\n                                break;\n                            default:\n                                Console.Write($\"Bạn muốn đổi Loại {labelchoise} thành: \");\n                                string newLabelvalue = Console.ReadLine()!.ToUpper();\n                                Console.WriteLine(\"Bảng các lô hàng sẽ thay đổi loại hàng\");\n                                ArrayManipulate.ChangeLabelinEditLabel(ref data.ItemsList,itemsIdListNeedChange,newLabelvalue);\n                                ArrayManipulate.ChangeUniqueValue(labelchoise,newLabelvalue,ref data);\n                                break;\n                        }\n                        Console.WriteLine(\"Bạn có muốn tiếp tục thay đổi loại hàng khác?\");\n                        changeShow = stringmodifine.Inputyn(\"Bạn có muốn tiếp tục thay đổi loại hàng khác?\");\n\n                    }\n\n                    break;\n                case 3: //xoa ten va kiem tra neu co cac mat hang trung ten se canh bao va xoa toan bo\n                    Console.WriteLine(\"Việc xoá loại hàng sẽ khiến cho các lô hàng có tên loại hàng tương ứng bị xóa\");\n                    bool changeShowremove = stringmodifine.Inputyn(\"Bạn có muốn tiếp tục thực hiện thay đổi?\");\n                    while (changeShowremove)\n                    {\n                        string labelchoise = ArrayManipulate.SelectLabel(\"Lựa chọn loại hàng hóa muốn thay đổi\", data);\n                        // Kiem tra list hàng có cùng mã loại hàng đã chọn\n                        string[] itemsIdListNeedRemove = Array.Empty<string>();\n                        foreach (Item item in data.ItemsList)\n                        {\n                            if (item.Type == labelchoise)\n                            {\n                                ArrayManipulate.Addstring(ref itemsIdListNeedRemove,item.Id);\n                            }\n                        }\n\n                        switch (itemsIdListNeedRemove.Length)\n                        {\n                            case 0:\n                                Console.WriteLine(\"Không có lô hàng nào trong kho có loại hàng cùng mã đã chọn\");\n                                ArrayManipulate.RemoveString(ref data.Label,labelchoise);\n                                break;\n                            default:\n                                Console.Write($\"Bạn chọn xóa bỏ Loại hàng {labelchoise}\");\n                                Console.WriteLine(\"Bảng các lô hàng sẽ bị xóa do loại hàng đã bị xóa\");\n                                ArrayManipulate.RemoveItem(ref data.ItemsList,itemsIdListNeedRemove);\n                                ArrayManipulate.RemoveString(ref data.Label,labelchoise);\n                                break;\n                        }\n                        changeShowremove = stringmodifine.Inputyn(\"Bạn có muốn tiếp tục thay đổi loại hàng khác?\");\n\n                    }\n                    break;\n\n            }\n\n        }\n\n        // dang doi ham replace, remove va find.\n        // public static void updateLabel(ref Store data)\n        // {\n        //     Console.WriteLine(\"Các mã hàng hiện tại:\");\n        //     for (int i = 0; i < data.Label.Length; i++)\n        //     {\n        //         string text = $\"{i+1}. {data.Label[i]}\";\n        //     }\n        //     \n        // }\n    }\n}\n
+===================================================================
+diff --git a/ManageStore/Function.cs b/ManageStore/Function.cs
+--- a/ManageStore/Function.cs	
++++ b/ManageStore/Function.cs	
+@@ -76,7 +76,7 @@
+ 
+         public static void EditItems(ref Item[] listitem)
+         {
+-            string IdofItem = stringmodifine.Inputlimittext("Nhập mã hàng (4 ký tự): ", 4);
++            string IdOfItem = stringmodifine.Inputlimittext("Nhập mã hàng (4 ký tự): ", 4);
+             bool checkinput = false;
+             // while (expression)
+             // {
+@@ -107,7 +107,7 @@
+                     inputvalue = stringmodifine.Inputlimittext("Tìm kiếm theo mã hàng hoán\nNhập giá trị tìm kiếm", 4);
+                     foreach (Item eachItem in data.ItemsList)
+                     {
+-                        if (Check.Findvalue(inputvalue, eachItem.Id, false))
++                        if (Check.FindValue(inputvalue, eachItem.Id, false))
+                         {
+                             AddItemtoData(ref result, eachItem);
+                         }
+@@ -136,7 +136,7 @@
+                     string input = Console.ReadLine()!.ToUpper();
+                     foreach (Item eachItem in data.ItemsList)
+                     {
+-                        if (Check.Findvalue(input, eachItem.Name, fistletter))
++                        if (Check.FindValue(input, eachItem.Name, fistletter))
+                         {
+                             AddItemtoData(ref result, eachItem);
+                         }
+@@ -156,7 +156,7 @@
+                     string inputlabel = data.Label[choise - 1];
+                     foreach (Item eachItem in data.ItemsList)
+                     {
+-                        if (Check.Findvalue(inputlabel, eachItem.Type, false))
++                        if (Check.FindValue(inputlabel, eachItem.Type, false))
+                         {
+                             AddItemtoData(ref result, eachItem);
+                         }
+@@ -179,21 +179,17 @@
+         
+ 
+         // Sua thong tin
+-        public static void EditLable(ref Store data)
++        public static void EditLabel(ref Store data)
+         {
+             Print.EndSeparate();
+-            Console.WriteLine("Danh mục các loại hàng:");
+-            for (int i = 0; i < data.Label.Length; i++)
+-            {
+-                Console.WriteLine($"{i + 1}. {data.Label[i]}");
+-            }
+-
+             //khi xóa sẽ xóa hết dữ liệu cùng label và khi đổi thì toàn bộ cùng đổi
+-            Console.WriteLine("Các lệnh sửa đổi loại hàng:");
+-            int userchoise = stringmodifine.Inputnumber("1. Thêm\n2. Sửa\n3. Xóa", 1, 3);
++            Console.WriteLine("Các lệnh sửa đổi loại hàng:\n1. Thêm\n2. Sửa\n3. Xóa");
++            int userchoise = stringmodifine.Inputnumber("Chọn chức năng (1~3):" , 1, 3);
+             switch (userchoise)
+             {
+                 case 1: //Them gia tri cho label
++                    Print.PrintArraylist("Các loại hàng hiện có: ",data.Label);
++                    Console.Write("Nhập giá trị bạn muốn thêm vào: ");
+                     string input = Console.ReadLine()!.ToUpper();
+                     bool check = Check.DuplicatecheckLable(input, data);
+                     while (check == false)
+@@ -210,7 +206,11 @@
+                     }
+ 
+                     newlabel[^1] = input;
++                    Print.MidSeparate();
++                    Print.PrintArraylist("Các loại hàng sau thao tác: ",data.Label);
++                    Print.EndSeparate();
+                     break;
++                
+                 case 2: // Sua doi ten label va kiem tra items tu do
+                     Console.WriteLine("Việc sửa đổi tên loại hàng sẽ thay đổi tên loại hàng các lô hàng có tên loại hàng tương ứng");
+                     bool changeShow = stringmodifine.Inputyn("Bạn có muốn tiếp tục thực hiện thay đổi?");
+@@ -287,15 +287,6 @@
+ 
+         }
+ 
+-        // dang doi ham replace, remove va find.
+-        // public static void updateLabel(ref Store data)
+-        // {
+-        //     Console.WriteLine("Các mã hàng hiện tại:");
+-        //     for (int i = 0; i < data.Label.Length; i++)
+-        //     {
+-        //         string text = $"{i+1}. {data.Label[i]}";
+-        //     }
+-        //     
+-        // }
++      
+     }
+ }
+Index: ManageStore/Program.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\n\nnamespace ManageStore\n{\n    internal class Program\n    {\n        // ReSharper disable once UnusedParameter.Local\n        private static void Main(string[] args)\n        {\n\n            // test create data\n            Console.Clear();\n            Print.FirstNote();\n            Store warehouse = new Store();\n            Function.CreateFirstData(ref warehouse);\n            Print.PrintTable(warehouse,true);\n            ArrayManipulate.InsertMultiItem(ref warehouse,2);\n            Console.Clear(); \n            Print.PrintTable(warehouse,false);\n            bool show = true;\n            while (show)\n            {\n                Function.FindItems(warehouse);\n                show = stringmodifine.Inputyn(\"Bạn có muốn tìm giá trị khác không?\");\n            }\n            \n            //Console.Write(Check.Findvalue(Console.ReadLine(),Console.ReadLine(),true));\n            \n    \n\n\n            // Console.WriteLine(\"so item xoa\");\n            // int qty = int.Parse(Console.ReadLine()!);\n            // string[] idremove = new string[qty];\n            // for (int i = 0; i < qty; i++)\n            // {\n            //     Console.WriteLine($\"ID thu {i+1}\");\n            //     idremove[i] = Console.ReadLine()!.ToUpper();\n            // }\n            //\n            //\n            //\n            // Function.RemoveItem(ref warehouse.ItemsList, idremove);\n            // Console.WriteLine(\"sau khi remove\");\n            // Function.PrintTable(warehouse,false);\n            \n            // string[] newlable = warehouse.Label;\n            // stringmodifine.PrintStringArray(newlable);\n            // Console.WriteLine(\"nhap gia tri can xoa\");\n            // Function.Removestring(ref newlable,Console.ReadLine());\n            // stringmodifine.PrintStringArray(newlable);\n            //\n\n\n\n\n        }\n    }\n}
+===================================================================
+diff --git a/ManageStore/Program.cs b/ManageStore/Program.cs
+--- a/ManageStore/Program.cs	
++++ b/ManageStore/Program.cs	
+@@ -17,14 +17,9 @@
+             ArrayManipulate.InsertMultiItem(ref warehouse,2);
+             Console.Clear(); 
+             Print.PrintTable(warehouse,false);
+-            bool show = true;
+-            while (show)
+-            {
+-                Function.FindItems(warehouse);
+-                show = stringmodifine.Inputyn("Bạn có muốn tìm giá trị khác không?");
+-            }
++            Function.EditLabel(ref warehouse);
+             
+-            //Console.Write(Check.Findvalue(Console.ReadLine(),Console.ReadLine(),true));
++            //Console.Write(Check.findValue(Console.ReadLine(),Console.ReadLine(),true));
+             
+     
+ 
+Index: ManageStore/ArrayManipulate.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\n\nnamespace ManageStore\n{\n    public class ArrayManipulate\n    {\n        // Nhap gia tri vao\n        public static Item InputItem(string ghichu, Store warehouse, bool auto)\n        {\n                    Print.EndSeparate();\n                    var item = new Item();\n                    Console.WriteLine(ghichu);\n                    if (auto)\n                    {\n                        item = Sample.RandItem(\"Tạo hàng tự động\", warehouse);\n                    }\n                    else\n                    {\n                        Console.Write(\"1. Mã Sản Phẩm: \");\n                        item.Id = Sample.RanId(warehouse.ItemsList);\n                        Console.Write(item.Id);\n                        item.Type = SelectLabel(\"\\n2. Loại sản phẩm: \",warehouse);\n                        Console.Write(\"3. Tên sản phẩm: \");\n                        item.Name = Console.ReadLine()!.ToUpper();\n                        Console.Write(\"4. Số lượng: \");\n                        item.Qty = int.Parse(Console.ReadLine()!);\n                        Console.WriteLine(\"5. Ngày sản xuất: \");\n                        item.Mfg = stringmodifine.InputDate();\n                        item.Exp = stringmodifine.Inputexp(\"Số tháng sử dụng\",item.Mfg);\n                        Console.Write(\"Công ty: \");\n                        item.Com = Console.ReadLine()!;\n                    }\n        \n                    return item;\n                }\n        //control chon lable\n        public static string SelectLabel(string note, Store data)\n        {\n            Console.WriteLine(note);\n            string[] listlabel = data.Label;\n            for (int i = 0; i < listlabel.Length; i++)\n            {\n                string text = $\"{i + 1}. {listlabel[i]}\";\n                Console.WriteLine(text);\n            }\n            string inputtext = $\"lựa chọn loại hàng (1~{listlabel.Length}): \";\n            int userchoise = stringmodifine.Inputnumber(inputtext, 1, listlabel.Length);\n            return listlabel[userchoise-1];\n        }\n        \n        //nhap nhieu gia tri moi vao kho bang tay\n        public static void InsertMultiItem(ref Store data,int noRow)\n        {\n            Console.WriteLine($\"Nhập thêm {noRow} lô hàng vào kho\");\n            bool auto = stringmodifine.Inputyn(\"Bạn muốn tạo lô hàng tự động?(y/n): \");\n            for (int i = 0; i < noRow; i++)\n            {\n                //tang them 1 element cho array\n                Item[] newitItemslist = new Item[data.ItemsList.Length+1];\n                for (int j = 0; j < data.ItemsList.Length; j++)\n                {\n                    newitItemslist[j] = data.ItemsList[j];\n                }\n\n                data.ItemsList = newitItemslist;\n                data.ItemsList[^1] = ArrayManipulate.InputItem($\"Nhập lô hàng thứ {i+1}\", data, auto);\n\n            }\n        }\n        //Them 1 element string vao array co san\n        public static void Addstring(ref string[] array, string element)\n        {\n            string[] newarray = new string[array.Length + 1];\n            for (int i = 0; i < array.Length; i++)\n            {\n                newarray[i] = array[i];\n            }\n\n            newarray[^1] = element;\n            array = newarray;\n        }\n        \n        //Thay đổi giá trị unique trong string\n        public static void ChangeUniqueValue( string valueNeedChange,string newvalue,ref Store data)\n        {\n            bool duplicate;\n            duplicate = Check.DuplicatecheckLable(newvalue, data);\n            if (newvalue == null)\n            {\n                Console.WriteLine(\"Giá trị không thay đổi\");\n            }\n            else\n            {\n                while (duplicate)\n                {\n                    Console.WriteLine(\"Giá trị đã tồn tại\\nGiá trị mới: \");\n                    newvalue = Console.ReadLine()!.ToUpper();\n                    duplicate = Check.DuplicatecheckLable(newvalue, data);\n                    \n                }\n                \n                for (int i = 0; i < data.Label.Length; i++) \n                {\n                    if (data.Label[i] == valueNeedChange)\n                    {\n                        data.Label[i] = newvalue;\n                        break;\n                    }\n                }\n                \n            }\n            Console.WriteLine($\"Đã thay đổi loại hàng: {valueNeedChange} thành {newvalue}\");\n        }\n        \n        //Thay doi gia tri Items chi phuc vu cho function thay doi gia tri label trong edit label\n        public static void ChangeLabelinEditLabel(ref Item[] packageds, string[] idStrings, string newLabel)\n        {\n            for (int i = 0;  i < packageds.Length; ++i)\n            {\n                bool change;\n                foreach (var idItemNeedChange in idStrings)\n                {\n                    change = idItemNeedChange == packageds[i].Id;\n                    switch (change)\n                    {\n                        case true:\n                            \n                            Console.WriteLine($\"Lô hàng thay đổi loại hàng:\");\n                            Print.PrintInfItem(packageds[i]);\n                            packageds[i].Type = newLabel;\n                            break;\n                    }\n                }\n            }\n        }\n        //Xoa 1 element string trong array co san\n        public static void RemoveString(ref string[] array, string target)\n        {\n            //tim do dai array sau khi da xoa du lieu\n            int[] rListIndexremove;\n            int count = 0,newindex=0;\n            foreach (string element in array)\n            {\n                if (element == target)\n                {\n                    count += 1;\n                }\n            }\n            //danh sach id cac element trung trong list\n            rListIndexremove = new int[count];\n            for (int i = 0; i < array.Length; i++)\n            {\n                if (array[i]==target)\n                {\n                    rListIndexremove[newindex] = i;\n                    newindex += 1;\n                }\n            }\n\n            string[] newarray = new string[array.Length - rListIndexremove.Length];\n            int indexnewarray = 0;\n            for (int i = 0; i < array.Length; i++)\n            {\n                int countindexremove = 0;\n                for (int j = 0; j < rListIndexremove.Length; j++)\n                {\n                    if (i==rListIndexremove[j])\n                    {\n                        countindexremove += 1;\n                    }\n                }\n\n                switch (countindexremove)\n                {\n                    case 0:\n                        newarray[indexnewarray] = array[i];\n                        indexnewarray += 1;\n                        break;\n                    default:\n                        Console.WriteLine($\"Giá trị {array[i]} đã bị xóa\");\n                        break;\n                }\n            }\n\n            array = newarray;\n        }\n        \n        \n        //----------------------------\n        //Item\n        //xoa 1 item trong array list item\n        public static void RemoveItem(ref Item[] listItems, string[] listIdStrings)\n        {\n            //tim do dai array sau khi xoa item\n            int countRemove = 0;\n            foreach (Item item in listItems)\n            {\n                foreach (string idString in listIdStrings)\n                {\n                    if (idString == item.Id)\n                    {\n                        countRemove += 1;\n                    }\n                }\n            }\n            Item[] newItemsList = new Item[listItems.Length - countRemove];\n            int newindex = 0;\n            for (int i = 0; i < listItems.Length; i++)\n            {\n                int countid = 0;\n                for (int j = 0; j < listIdStrings.Length; j++)\n                {\n                    if (listItems[i].Id == listIdStrings[j])\n                    {\n                        countid += 1;\n                        Console.Write(\"Xóa lô hàng: \");\n                        Print.PrintInfItem(listItems[i]);\n                    }\n                }\n\n                switch (countid)\n                {\n                    case 0:\n                        newItemsList[newindex] = listItems[i];\n                        newindex += 1;\n                        break;\n                }\n            }\n\n            listItems = newItemsList;\n\n        }\n    }\n\n}
+===================================================================
+diff --git a/ManageStore/ArrayManipulate.cs b/ManageStore/ArrayManipulate.cs
+--- a/ManageStore/ArrayManipulate.cs	
++++ b/ManageStore/ArrayManipulate.cs	
+@@ -7,8 +7,8 @@
+         // Nhap gia tri vao
+         public static Item InputItem(string ghichu, Store warehouse, bool auto)
+         {
+-                    Print.EndSeparate();
+-                    var item = new Item();
++                    Print.MidSeparate();
++                    Item item;
+                     Console.WriteLine(ghichu);
+                     if (auto)
+                     {
+Index: ManageStore/Print.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\n\nnamespace ManageStore\n{\n    public class Print\n    {\n        /*Width of column gioi han so space in trong bang*/\n        private const int Limitmsp = 11,\n            Limitth = 30,\n            Limitsl = 8,\n            Limithd = 10,\n            Limitsx = 11,\n            Limitlh = 11,\n            Limitcty = 20;  \n        // Header Table format\n        public static void EndSeparate()\n        {\n            string dast = null;\n            var countdast = Limitcty + Limithd + Limitlh + Limitmsp + Limitsl + Limitsx + Limitth + 3 * 8-2;\n            for (var i = 0; i < countdast; i++) dast += \"~\";\n            Console.WriteLine(dast);\n        }\n        \n        //Printout format table\n        \n\n        public static void HeaderTable()\n        {\n            EndSeparate();\n            string id, name, exp, mfg, com, type, qty;\n            id = FixFormatTableText(\"Mã Sản Phẩm\", Limitmsp);\n            name = FixFormatTableText(\"Tên Hàng\", Limitth);\n            qty = FixFormatTableText(\"Số lượng\", Limitsl);\n            exp = FixFormatTableText(\"HSD (mm/yy)\", Limithd);\n            mfg = FixFormatTableText(\"NSX (mm/yy)\", Limitsx);\n            com = FixFormatTableText(\"Cty sản xuất\", Limitcty);\n            type = FixFormatTableText(\"Loại hàng\", Limitlh);\n            string text = $\"| {id} | {name} | {qty} | {exp} | {mfg} | {com} | {type} |\";\n\n            Console.WriteLine(text);\n            EndSeparate();\n        }\n        \n        //cố định định dạng bảng khi in kết quả ra trong bảng\n        public static string FixFormatTableText(string field, int limitChar)\n        {\n            // Gioi han so luong ky tu in;\n            string texta = null;\n            var limit = Math.Min(field.Length, limitChar);\n            if (limit < limitChar)\n            {\n                for (var i = 0; i < field.Length; i++) texta += field[i].ToString();\n\n                // ReSharper disable once PossibleNullReferenceException\n                while (texta.Length < limitChar) texta += \" \";\n            }\n            else\n            {\n                for (var i = 0; i < limitChar; i++) texta += field[i].ToString();\n            }\n\n            return texta;\n        }\n\n        //in gia tri cua lo hang\n        public static void PrintRowItem(Item anItem)\n        {\n            string id, name, exp, mfg, com, type, qty;\n            id = FixFormatTableText(anItem.Id, Limitmsp);\n            name = FixFormatTableText(anItem.Name, Limitth);\n            qty = FixFormatTableText(anItem.Qty.ToString(), Limitsl);\n            exp = FixFormatTableText(stringmodifine.DateString(anItem.Exp), Limithd);\n            mfg = FixFormatTableText(stringmodifine.DateString(anItem.Mfg), Limitsx);\n            com = FixFormatTableText(anItem.Com, Limitcty);\n            type = FixFormatTableText(anItem.Type, Limitlh);\n            Console.WriteLine($\"| {id} | {name} | {qty} | {exp} | {mfg} | {com} | {type} |\");\n        }\n\n        public static void PrintInfItem(Item anItem)\n        {\n            string id, name, exp, mfg, com, type, qty;\n            id = anItem.Id;\n            name = anItem.Name;\n            qty = anItem.Qty.ToString();\n            exp = stringmodifine.DateString(anItem.Exp);\n            mfg = stringmodifine.DateString(anItem.Mfg);\n            com = anItem.Com;\n            type = anItem.Type;\n            Console.WriteLine($\"| Mã SP: {id} | Tên: {name} | Số lượng: {qty} | HD: {exp} | NSX: {mfg} | Cty SX: {com} | Loại hàng: {type} |\");\n        }\n\n        public static void PrintTable(Store data,bool clearconsole)\n                {\n                    switch (clearconsole)\n                    {\n                        case true:\n                            Console.Clear();\n                            break;\n                    }\n                    HeaderTable();\n                    int noitems = data.ItemsList.Length;\n                    switch (noitems)\n                    {\n                        case 0:\n                            break;\n                        default:\n                            foreach (var item in data.ItemsList) PrintRowItem(item);\n                            break;\n                    }\n                    EndSeparate();\n                }\n        //Print first note\n        public static void FirstNote()\n        {\n            string row1, row2, row3, row4;\n            row1 = \"ĐỒ ÁN MÔN HỌC NHẬP MÔN LẬP TRÌNH\";\n            row2 = \"Tên Đồ Án: Phần Mềm Quản Lý Hàng Hóa\";\n            row3 = \"MSSV:21880005 - Họ Tên: Phạm Tuấn Anh\";\n            row4 = \"MSMH:CSC10001 - GVGD: Phạm Minh Tuấn\";\n            Console.WriteLine($\"{row1}\\n{row2}\\n{row3}\\n{row4}\");\n        }\n    }\n}
+===================================================================
+diff --git a/ManageStore/Print.cs b/ManageStore/Print.cs
+--- a/ManageStore/Print.cs	
++++ b/ManageStore/Print.cs	
+@@ -21,6 +21,14 @@
+             Console.WriteLine(dast);
+         }
+         
++        public static void MidSeparate()
++        {
++            string dast = null;
++            var countdast = (Limitcty + Limithd + Limitlh + Limitmsp + Limitsl + Limitsx + Limitth + 3 * 8-2)/2;
++            for (var i = 0; i < countdast; i++) dast += "~";
++            Console.WriteLine(dast);
++        }
++        
+         //Printout format table
+         
+ 
+@@ -109,7 +117,7 @@
+                     }
+                     EndSeparate();
+                 }
+-        //Print first note
++        //Print first note mo ta thong tin do an
+         public static void FirstNote()
+         {
+             string row1, row2, row3, row4;
+@@ -119,5 +127,14 @@
+             row4 = "MSMH:CSC10001 - GVGD: Phạm Minh Tuấn";
+             Console.WriteLine($"{row1}\n{row2}\n{row3}\n{row4}");
+         }
++
++        public static void PrintArraylist(string note,string[] list)
++        {
++            Console.WriteLine(note);
++            for (int i = 0; i < list.Length; i++)
++            {
++                Console.WriteLine($"{i + 1}. {list[i+1]}");
++            }
++        }
+     }
+ }
+\ No newline at end of file
+Index: ManageStore/Check.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\n\nnamespace ManageStore\n{\n    public class Check\n    {\n        //kiem tra gia tri trung lap\n        public static bool Duplicatecheckid(string value, Item[] items)\n        {\n            int count = 0;\n            bool check = false;\n            if (items != null)\n                foreach (var element in items)\n                    if (element.Id == value)\n                        count += 1;\n\n            if (count > 0) check = true;\n\n            return check;\n        }\n        //kiem tra gia tri loai hang trung lap dung cho them lable moi\n        public static bool DuplicatecheckLable(string value, Store data)\n        {\n            int count = 0;\n            bool check = false;\n            if (data.Label != null)\n                foreach (var element in data.Label)\n                    if (element == value)\n                        count += 1;\n\n            if (count > 0) check = true;\n\n            return check;\n        }\n        // tim ky tu\n        public static bool Findvalue(string valuelookup, string intext, bool firstlettereachword)\n        {\n            bool content = false;\n            string textcompare;\n            valuelookup = valuelookup.ToUpper();\n            intext = intext.ToUpper();\n            switch (firstlettereachword)\n            { \n                case false:\n                    int index;\n                    for (int i = 0; i < intext.Length-valuelookup.Length; i++)\n                    {\n                        textcompare = null;\n                        if (intext[i]==valuelookup[0])\n                        {\n                            \n                            for (int j = 0; j < valuelookup.Length; j++)\n                            {\n                                textcompare += intext[i+j];\n                            }\n                        }\n\n                        content = textcompare == valuelookup;\n                        if (content)\n                        {\n                            break;\n                        }\n                    }\n                    break;\n                case true:\n                    string[] listword = intext.Split(\" \");\n                    string textfirstletter = null;\n                    foreach (var word in listword)\n                    {\n                        textfirstletter += word[0].ToString();\n                    }\n                    for (int i = 0; i < textfirstletter.Length-valuelookup.Length; i++)\n                    {\n                        textcompare = null;\n                        if (textfirstletter[i]==valuelookup[0])\n                        {\n                            for (int j = 0; j < valuelookup.Length; j++)\n                            {\n                                textcompare += textfirstletter[i+j];\n                            }\n                        }\n                        content = textcompare == valuelookup;\n                        if (content)\n                        {\n                            break;\n                        }\n                    }\n                    break;\n            }\n\n            return content;\n        }\n        \n\n    }\n}
+===================================================================
+diff --git a/ManageStore/Check.cs b/ManageStore/Check.cs
+--- a/ManageStore/Check.cs	
++++ b/ManageStore/Check.cs	
+@@ -33,29 +33,28 @@
+             return check;
+         }
+         // tim ky tu
+-        public static bool Findvalue(string valuelookup, string intext, bool firstlettereachword)
++        public static bool FindValue(string valueLookup, string inText, bool firstLetterEachWord)
+         {
+             bool content = false;
+             string textcompare;
+-            valuelookup = valuelookup.ToUpper();
+-            intext = intext.ToUpper();
+-            switch (firstlettereachword)
++            valueLookup = valueLookup.ToUpper();
++            inText = inText.ToUpper();
++            switch (firstLetterEachWord)
+             { 
+                 case false:
+-                    int index;
+-                    for (int i = 0; i < intext.Length-valuelookup.Length; i++)
++                    for (int i = 0; i < inText.Length-valueLookup.Length; i++)
+                     {
+                         textcompare = null;
+-                        if (intext[i]==valuelookup[0])
++                        if (inText[i]==valueLookup[0])
+                         {
+                             
+-                            for (int j = 0; j < valuelookup.Length; j++)
++                            for (int j = 0; j < valueLookup.Length; j++)
+                             {
+-                                textcompare += intext[i+j];
++                                textcompare += inText[i+j];
+                             }
+                         }
+ 
+-                        content = textcompare == valuelookup;
++                        content = textcompare == valueLookup;
+                         if (content)
+                         {
+                             break;
+@@ -63,28 +62,32 @@
+                     }
+                     break;
+                 case true:
+-                    string[] listword = intext.Split(" ");
++                    string[] listword = inText.Split(" ");
+                     string textfirstletter = null;
+                     foreach (var word in listword)
+                     {
+                         textfirstletter += word[0].ToString();
+                     }
+-                    for (int i = 0; i < textfirstletter.Length-valuelookup.Length; i++)
+-                    {
+-                        textcompare = null;
+-                        if (textfirstletter[i]==valuelookup[0])
+-                        {
+-                            for (int j = 0; j < valuelookup.Length; j++)
+-                            {
+-                                textcompare += textfirstletter[i+j];
+-                            }
+-                        }
+-                        content = textcompare == valuelookup;
+-                        if (content)
+-                        {
+-                            break;
+-                        }
+-                    }
++
++                    if (textfirstletter != null)
++                        for (int i = 0; i < textfirstletter.Length - valueLookup.Length; i++)
++                        {
++                            textcompare = null;
++                            if (textfirstletter[i] == valueLookup[0])
++                            {
++                                for (int j = 0; j < valueLookup.Length; j++)
++                                {
++                                    textcompare += textfirstletter[i + j];
++                                }
++                            }
++
++                            content = textcompare == valueLookup;
++                            if (content)
++                            {
++                                break;
++                            }
++                        }
++
+                     break;
+             }
+ 

@@ -1,0 +1,44 @@
+@page
+@using RazorAppLearn.Entities
+@using RazorAppLearn.Service
+@model RazorAppLearn.Pages.mypage
+
+
+@{
+    Layout = null;
+    PhanSo a = default, b = default;
+    if (Request.HasFormContentType)
+    {
+        a.Tuso = int.Parse(Request.Form["TusoA"]);
+        a.Mauso = int.Parse(Request.Form["MausoA"]);
+        b.Tuso = int.Parse(Request.Form["TusoB"]);
+        b.Mauso = int.Parse(Request.Form["MausoB"]);
+    }
+
+    var printPhanSo = XulyPhanSo.PrintPhanSo(XulyPhanSo.Tong2PhanSo(a, b));
+    var currentTime = $"Current time is {DateTime.Now}";
+
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" lang="Something else">
+<head>
+    <title>Tính toán</title>
+</head>
+<body>
+<form method="POST">
+    I want to see:<br>
+    <label for="SoA">nhap gia tu so thu nhat</label><br>
+    <input type="number" name="TusoA" value="0"><br>
+    <label for="MausoA">nhap gia mau so thu nhat</label><br>
+    <input type="number" name="MausoA" value="0"><br>
+    <label for="TusoB">Nhap gia tri tu so thu hai</label><br>
+    <input type="number" name="TusoB" value="0">
+    <label for="MausoB">Nhap gia tri mau so thu 2</label><br>
+    <input type="number" name="MausoB" value="0"><br>
+    <input type="submit" value="Result"/>
+</form>
+<p>@printPhanSo</p>
+<div>@currentTime</div>
+</body>
+</html>
