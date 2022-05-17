@@ -35,6 +35,7 @@ public class StoreItem
         StreamWriter writeData = new StreamWriter(StoreLFileInfo.FullName);
         string jsonString = JsonConvert.SerializeObject(itemData);
         writeData.Write(jsonString);
+        writeData.Close();
         return true;
     }
     
