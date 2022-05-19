@@ -1,0 +1,46 @@
+@page
+@using Microsoft.AspNetCore.Components.Web
+@model Manage_Store.Pages.LabelCreate
+
+@{
+    ViewData["Title"] = "Tao danh sach ma hang";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Tao danh sach ma hang</title>
+</head>
+<body>
+<div>
+    <form method="post" class="text-dark">
+        <label id="viewport">Ten loai hang</label>
+        <input type="text" name = "NewLabel"/>
+        <input type="submit" value="Them"/>
+    </form>
+    <p>@Model.Nortification</p>
+    <br/>
+    <h1 class="h1">Bang gia tri loai hang hien co</h1>
+    <table>
+        <tr>
+            <th>Loai Hang</th>
+            <th>Chuc nang</th>
+        </tr>
+        
+    @{
+        foreach (string Label in @Model.labelist)
+        { <tr>
+              <td>@Label</td>
+              <td>
+                  <a href="LabelRemove?label=@Label">Xoa</a>
+                  <a href="LabelUpdate?label=@Label">Sua</a>
+              </td>
+          </tr>
+        }
+    }
+       
+    </table>
+</div>
+</body>
+</html>

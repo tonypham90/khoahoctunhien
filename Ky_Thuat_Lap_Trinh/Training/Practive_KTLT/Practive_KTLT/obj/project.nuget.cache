@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9n5xwWUZ8niuoVo+mlxRO/qCfvTirTq4SjLa5Pkhm5NwByZ0vY8SLBRXk09PMxvyovxjTBs/xqr11fIP+LoDNA==",
+  "dgSpecHash": "4KIEjVSDSQSrn6XzeVVUel8pKivOGtn8M7aj9MSFM11zcp71mJvc/vNW7sijcA1HZS59u5IXjL0ZDeM+UQ3zxA==",
   "success": true,
-  "projectFilePath": "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj",
+  "projectFilePath": "/Users/tonypham/Documents/GitHub/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/Practive_KTLT/Practive_KTLT/Practive_KTLT.csproj",
   "expectedPackageFiles": [
     "/Users/tonypham/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
   ],

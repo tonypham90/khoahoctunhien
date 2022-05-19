@@ -1,0 +1,39 @@
+@page
+@model Manage_Store.Pages.ItemCreate
+
+@{
+    ViewData["Title"] = "Tao San Pham moi";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title> Tao san pham moi</title>
+</head>
+<body>
+<div>
+    <form method="post">
+        <label class="form-label">Ma hang</label>
+        <input type="text" name="ItemID"/>
+        <label class="form-label">Ten san pham</label><br/>
+        <input type="text" class="text-dark" name="ItemName"/><br/>
+        <label class="form-label">Cty San Xuat</label><br/>
+        <input type="text" class="text-dark" name="ItemManu"/>
+        <label class="form-label">So luong san pham</label>
+        <input type="number" name="ItemQty" class="text-dark"/>
+        <label class="form-select"> Chon loai hang</label>
+        <select name="ItemLabel" id="ItemLabel">
+            @{
+                <option value=""></option>
+                foreach (string label in @Model.ListLabel)
+                {
+                    <option value="@label">@label</option>
+                }
+            }
+        </select>
+        
+    </form>
+</div>
+</body>
+</html>

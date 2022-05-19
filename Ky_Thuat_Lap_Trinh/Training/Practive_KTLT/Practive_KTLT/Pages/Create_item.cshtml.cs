@@ -4,41 +4,41 @@ using Practive_KTLT.Service;
 
 namespace Practive_KTLT.Pages;
 
-public class Create_item : PageModel
+public class CreateItem : PageModel
 {
-    public string text;
+    public string Text;
     [BindProperty]
-    public string Item_Id { get; set; }
+    public string ItemId { get; set; }
     [BindProperty]
-    public string Item_Name { get; set; }
+    public string ItemName { get; set; }
     [BindProperty]
-    public int Item_Qty { get; set; }
+    public int ItemQty { get; set; }
     [BindProperty]
-    public DateTime Item_Exp { get; set; }
+    public DateTime ItemExp { get; set; }
     [BindProperty]
-    public DateTime Item_Mfg { get; set; }
+    public DateTime ItemMfg { get; set; }
     [BindProperty]
-    public string Item_Type { get; set; }
+    public string ItemType { get; set; }
     [BindProperty]
-    public float Item_Price { get; set; }
+    public float ItemPrice { get; set; }
     
 
     public void OnGet()
     {
-        text = string.Empty;
+        Text = string.Empty;
     }
 
     public void OnPost()
     {
         Item product ;
-        product.Name = Item_Name;
-        product.Id = Item_Id;
-        product.Exp = Item_Exp;
-        product.Mfg = Item_Mfg;
-        product.Qty = Item_Qty;
-        product.Price = Item_Price;
-        product.Type = Item_Type;
+        product.Name = ItemName;
+        product.Id = ItemId;
+        product.Exp = ItemExp;
+        product.Mfg = ItemMfg;
+        product.Qty = ItemQty;
+        product.Price = ItemPrice;
+        product.Type = ItemType;
         bool result =SolvingItem.CreateItem(product);
-        text = $"input data {result}";
+        Text = $"input data {result}";
     }
 }
