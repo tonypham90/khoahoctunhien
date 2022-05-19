@@ -1,0 +1,15 @@
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/bin/Debug/net6.0/EvabyStack
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/bin/Debug/net6.0/EvabyStack.deps.json
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/bin/Debug/net6.0/EvabyStack.runtimeconfig.json
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/bin/Debug/net6.0/EvabyStack.dll
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/bin/Debug/net6.0/EvabyStack.pdb
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/EvabyStack.csproj.AssemblyReference.cache
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/EvabyStack.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/EvabyStack.AssemblyInfoInputs.cache
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/EvabyStack.AssemblyInfo.cs
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/EvabyStack.csproj.CoreCompileInputs.cache
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/EvabyStack.dll
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/refint/EvabyStack.dll
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/EvabyStack.pdb
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/EvabyStack.genruntimeconfig.cache
+/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/Debug/net6.0/ref/EvabyStack.dll

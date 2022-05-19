@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/WebApplication2/WebApplication2/WebApplication2.csproj": {}
+    "/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/EvabyStack.csproj": {}
   },
   "projects": {
-    "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/WebApplication2/WebApplication2/WebApplication2.csproj": {
+    "/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/EvabyStack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/WebApplication2/WebApplication2/WebApplication2.csproj",
-        "projectName": "WebApplication2",
-        "projectPath": "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/WebApplication2/WebApplication2/WebApplication2.csproj",
+        "projectUniqueName": "/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/EvabyStack.csproj",
+        "projectName": "EvabyStack",
+        "projectPath": "/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/EvabyStack.csproj",
         "packagesPath": "/Users/tonypham/.nuget/packages/",
-        "outputPath": "/Users/tonypham/RiderProjects/khoahoctunhien/Ky_Thuat_Lap_Trinh/Training/WebApplication2/WebApplication2/obj/",
+        "outputPath": "/Users/tonypham/RiderProjects/khoahoctunhien/CTDL/EvabyStack/EvabyStack/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/tonypham/.nuget/NuGet/NuGet.Config"
@@ -37,12 +37,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -54,9 +48,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
