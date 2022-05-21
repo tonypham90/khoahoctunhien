@@ -1,3 +1,4 @@
+using Manage_Store.Entity;
 using Newtonsoft.Json;
 
 namespace Manage_Store.DAL;
@@ -12,11 +13,11 @@ public static class DataWorkFlow
     private static readonly FileInfo ItemStore = new FileInfo("DataStore.json");
     
     //space for label
-    public static bool AddNewLabel(string newLabel)
+    public static bool AddNewLabel(string? newLabel)
     {
         newLabel = newLabel.ToUpper();
-        List<string> currentLabel = DownloadListLabel();
-        if (currentLabel.Contains(newLabel))
+        List<string?>? currentLabel = DownloadListLabel();
+        if (currentLabel!.Contains(newLabel))
         {
             return false;
         }
@@ -25,9 +26,9 @@ public static class DataWorkFlow
         
     }
 
-    public static List<string> DownloadListLabel()
+    public static List<string?>? DownloadListLabel()
     {
-        List<string> resList = new List<string>();
+        List<string>? resList = new List<string>();
         StreamReader fileReader = new StreamReader(ItemLabelList.FullName);
         string jsonstring = fileReader.ReadToEnd();
         fileReader.Close();
@@ -39,9 +40,9 @@ public static class DataWorkFlow
         return resList;
     }
 
-    public static bool UploadLabel(List<string> listLabel)
+    public static bool UploadLabel(List<string>? listLabel)
     {
-        if (listLabel.Count==0)
+        if (listLabel!.Count==0)
         {
             return false;
         }
@@ -55,6 +56,32 @@ public static class DataWorkFlow
     //end space for label
 
     //Store info
+    public static List<StrucItem> DownloadListItem()
+    {
+        List<StrucItem> resList = new List<StrucItem>();
+        StreamReader fileReader = new StreamReader(ItemStore.FullName);
+        string jsonstring = fileReader.ReadToEnd();
+        fileReader.Close();
+        if (string.IsNullOrEmpty(jsonstring))
+        {
+            return resList;
+        }
+        resList = JsonConvert.DeserializeObject<List<StrucItem>>(jsonstring) ?? throw new InvalidOperationException();
+        return resList;
+    }
+    
+    public static bool UploadItemList(List<StrucItem> listItems)
+    {
+        if (listItems.Count==0)
+        {
+            return false;
+        }
+        StreamWriter fileWriter = new StreamWriter(ItemStore.FullName);
+        string jsonstring = JsonConvert.SerializeObject(listItems);
+        fileWriter.Write(jsonstring);
+        fileWriter.Close();
+        return true;
+    }
 
     //End Of store info
 

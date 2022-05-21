@@ -7,33 +7,54 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="vi">
 <head>
     <title> Tao san pham moi</title>
 </head>
 <body>
 <div>
-    <form method="post">
-        <label class="form-label">Ma hang</label>
-        <input type="text" name="ItemID"/>
+    
+<form method="post">
+    <fieldset>
+        <legend>Thong tin san pham moi</legend>
+        <label class="form-label">Ma hang hien tai:</label>
+        <input class="text-dark" type="text" readonly="readonly" name="ItemId" value="@Model.ItemId"/><br/><br/>
         <label class="form-label">Ten san pham</label><br/>
-        <input type="text" class="text-dark" name="ItemName"/><br/>
+        <input type="text" class="text-dark" name="ItemName" minlength="1" required="required"/><br/><br/>
         <label class="form-label">Cty San Xuat</label><br/>
-        <input type="text" class="text-dark" name="ItemManu"/>
-        <label class="form-label">So luong san pham</label>
-        <input type="number" name="ItemQty" class="text-dark"/>
-        <label class="form-select"> Chon loai hang</label>
-        <select name="ItemLabel" id="ItemLabel">
+        <input type="text" class="text-dark" name="ItemManu" minlength="1" required="required"/><br/><br/>
+        <label class="form-label">So luong san pham ban dau</label><br/>
+        <input type="number" name="ItemQty" class="text-dark" step="1" min="0"/><br/><br/>
+        <label class="form-label">Gia san pham (dong/unit)</label><br/>
+        <input type="number" name="ItemPrice" class="text-dark" step="500" min="1000"/><br/><br/>
+        <label class="text-dark:"> Chon loai hang</label><br/>
+        <select name="ItemLabel">
             @{
-                <option value=""></option>
-                foreach (string label in @Model.ListLabel)
+                foreach (string? label in Model.ListLabel!)
                 {
                     <option value="@label">@label</option>
                 }
             }
-        </select>
-        
-    </form>
+        </select><br/><br/>
+        <label class="form-label">Han su dung</label><br/>
+        <input type="date" name="ItemExp" required="required" max="@DateTime.Today"/><br/><br/>
+        <label class="form-label">Ngay san xuat</label><br/>
+        <input type="date" name="ItemMfg" required="required" autocomplete="off" minlength="1"/><br/><br/>
+        <input type="submit" value="Nhap"/>
+        <button onclick="window.location.href='/store'">Tro ve</button>
+    </fieldset>
+</form>
+<@{
+     switch (Model.StatusRequestAddItem)
+     {
+        case true:
+             <p class="alert alert-success"><strong>Tao mat hang thanh cong</strong></p>
+        break;
+        case false:
+             <p class="alert-warning">Tao san pham that bai, kiem tra iai du lieu</p>
+        break;
+     }
+ }
 </div>
 </body>
 </html>

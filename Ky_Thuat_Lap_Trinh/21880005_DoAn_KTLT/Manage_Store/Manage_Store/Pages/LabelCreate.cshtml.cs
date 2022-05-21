@@ -7,21 +7,22 @@ namespace Manage_Store.Pages;
 
 public class LabelCreate : PageModel
 {
-    public string Nortification { get; set; }
-    public List<string> labelist { get; set; }
+    public string Nortification { get; set; } = null!;
+    public List<string?>? Labelist { get; set; }
     [BindProperty] 
-    public string NewLabel { get; set; }
+    public string NewLabel { get; set; } = null!;
+
     public void OnGet()
     {
         Nortification = String.Empty;
-        labelist = DataWorkFlow.DownloadListLabel();
+        Labelist = DataWorkFlow.DownloadListLabel();
     }
 
     public void OnPost()
     {
         string addNewLabel = NewLabel;
         Nortification = SolvingItemLabel.AddNewLabel(addNewLabel);
-        labelist = DataWorkFlow.DownloadListLabel();
+        Labelist = DataWorkFlow.DownloadListLabel();
     }
     
 }
