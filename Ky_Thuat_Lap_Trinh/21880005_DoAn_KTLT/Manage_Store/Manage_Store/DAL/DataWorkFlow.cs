@@ -9,26 +9,29 @@ public static class DataWorkFlow
     private static readonly DirectoryInfo DirectoryInfo = new DirectoryInfo(CurrentDir);
     private static readonly FileInfo ItemLabelList = new FileInfo("DataLabel.json");
     private static readonly FileInfo ImportRecord = new FileInfo("DataImportHistory.json");
-    private static readonly FileInfo SaleRecord = new FileInfo("DataSaleHistory.json");
+    public static FileInfo SaleRecord { get; } = new FileInfo("DataSaleHistory.json");
     private static readonly FileInfo ItemStore = new FileInfo("DataStore.json");
     
     //space for label
     public static bool AddNewLabel(string? newLabel)
     {
-        newLabel = newLabel.ToUpper();
-        List<string?>? currentLabel = DownloadListLabel();
-        if (currentLabel!.Contains(newLabel))
+        List<string> currentLabel = DownloadListLabel();
+        if (newLabel != null)
         {
-            return false;
+            newLabel = newLabel.ToUpper();
+            
+            if (currentLabel.Contains(newLabel))
+            {
+                return false;
+            }
+            currentLabel.Add(newLabel);
         }
-        currentLabel.Add(newLabel);
         return UploadLabel(currentLabel);
-        
     }
 
-    public static List<string?>? DownloadListLabel()
+    public static List<string> DownloadListLabel()
     {
-        List<string>? resList = new List<string>();
+        List<string> resList = new List<string>();
         StreamReader fileReader = new StreamReader(ItemLabelList.FullName);
         string jsonstring = fileReader.ReadToEnd();
         fileReader.Close();
@@ -40,9 +43,9 @@ public static class DataWorkFlow
         return resList;
     }
 
-    public static bool UploadLabel(List<string?> listLabel)
+    public static bool UploadLabel(List<string> listLabel)
     {
-        if (listLabel!.Count==0)
+        if (listLabel.Count==0)
         {
             return false;
         }

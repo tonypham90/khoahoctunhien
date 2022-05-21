@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b18427b4-6cea-4d0c-abf8-7d2306fb7941" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/projectonclass/projectonclass.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/projectonclass/tinh_array.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/projectonclass/tinh_array.cs" afterDir="false" />
-    </list>
+    <list default="true" id="b18427b4-6cea-4d0c-abf8-7d2306fb7941" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,9 +14,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/thuchanh/thuchanh/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Nhap_mon_lap_trinh/Bai_tap_ve_nha/baitap2/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Nhap_mon_lap_trinh/test/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Nhap_mon_lap_trinh/thuc_hanh_tren_lop/thuchanh/thuchanh/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1vr7bXlEpjy4GtCwz6NqysuLPdp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -29,19 +26,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -55,6 +45,7 @@
       <workItem from="1628325523092" duration="179000" />
       <workItem from="1628332107935" duration="19000" />
       <workItem from="1628924765089" duration="736000" />
+      <workItem from="1653103807272" duration="42000" />
     </task>
     <servers />
   </component>
@@ -74,7 +65,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

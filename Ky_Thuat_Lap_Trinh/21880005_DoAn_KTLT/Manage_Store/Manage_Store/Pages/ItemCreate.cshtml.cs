@@ -8,16 +8,16 @@ namespace Manage_Store.Pages;
 
 public class ItemCreate : PageModel
 {
-    public List<string?>? ListLabel { get; set; }
-    public bool StatusRequestAddItem { get; set; }
+
+    public List<string> ListLabel;
+    public bool StatusRequestAddItem;
+    public string ItemId { get; set; }
     [BindProperty]
-    public string? ItemId { get; set; }
+    public string ItemName { get; set; }
     [BindProperty]
-    public string? ItemName { get; set; }
+    public string ItemLabel { get; set; }
     [BindProperty]
-    public string? ItemLabel { get; set; }
-    [BindProperty]
-    public string? ItemManu { get; set; }
+    public string ItemManu { get; set; }
     [BindProperty]
     public int ItemQty { get; set; }
     [BindProperty]
@@ -31,7 +31,16 @@ public class ItemCreate : PageModel
     public void OnGet()
     {
         ItemId = ManipulateFunction.CreateItemId();
-        ListLabel = DataWorkFlow.DownloadListLabel();
+        ListLabel = new List<string>();
+        List<string> choose = DataWorkFlow.DownloadListLabel();
+        ListLabel = choose;
+        ItemName = String.Empty;
+        ItemManu = String.Empty;
+        ItemLabel = String.Empty;
+        ItemPrice = 0;
+        ItemExp = DateTime.Today;
+        ItemMfg = DateTime.Today;
+
     }
 
     public void OnPost()

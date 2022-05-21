@@ -7,8 +7,8 @@ namespace Manage_Store.Pages;
 
 public class LabelCreate : PageModel
 {
-    public string Nortification { get; set; } = null!;
-    public List<string?>? Labelist { get; set; }
+    public string Nortification { get; set; }
+    public List<string> Labelist { get; set; }
     [BindProperty] 
     public string NewLabel { get; set; } = null!;
 
