@@ -6,14 +6,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Manage_Store.Pages;
 
-public class ItemCreate : PageModel
+public class ItemUpdate : PageModel
 {
 
     public List<string> ListLabel = DataWorkFlow.DownloadListLabel();
     public bool StatusRequestAddItem;
-    [BindProperty] 
+    [BindProperty]
     public string Notification { get; set; }
-    public string ItemId = ManipulateFunction.CreateItemId();
+    [BindProperty(SupportsGet = true)]
+    public string ItemId = ;
     [BindProperty]
     public string ItemName { get; set; }
     [BindProperty]
@@ -66,4 +67,8 @@ public class ItemCreate : PageModel
                 break;
         }
     }
+}
+
+class ItemUpdateImpl : ItemUpdate
+{
 }

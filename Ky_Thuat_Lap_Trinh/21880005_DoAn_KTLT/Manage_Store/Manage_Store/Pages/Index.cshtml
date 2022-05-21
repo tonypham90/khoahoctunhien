@@ -1,5 +1,6 @@
 ﻿@page
 @using Microsoft.AspNetCore.Http.Features
+@using Manage_Store.Entity
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -9,16 +10,53 @@
 </header>
 <body>
 <h6>Chuc Nang</h6><br/>
-<div class="nav">
-
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
 <section class="btn-group-lg">
         <button class="btn btn-outline-primary" onclick="window.location.href='/ItemCreate'">Tao San Pham Moi</button>
         <button class="btn btn-outline-primary" onclick="window.location.href='/LabelCreate'">Cap Nhat Loai Hang</button>
     </section>
 
-<section1 class="table">
-    
+<section>
+    <fieldset class="border-primary">
+        <legend title="Tim kiem">
+            
+        </legend>
+    </fieldset>
+</section>
+<section1>
+    <table title="San Pham trong kho" class="table">
+        <h1 class="align-self-xxl-center"> Danh Sach San Pham</h1>
+        <tr class="text-center table-primary">
+            <th>Ma san pham</th>
+            <th>Ten</th>
+            <th>Cty San Xuat</th>
+            <th>So luong</th>
+            <th>Ngay san xuat</th>
+            <th>Han su dung</th>
+            <th>Gia</th>
+            <th>Loai</th>
+            <th>Chuc Nang</th>
+        </tr>
+
+        <tr>
+            @{
+                foreach (StrucItem Item in @Model.ItemsinStore)
+                {
+                    <td>@Item.Id</td>
+                    <td>@Item.Name</td>
+                    <td>@Item.Manufacture</td>
+                    <td>@Item.Qty.ToString("N0")</td>
+                    <td>@Item.Mfg</td>
+                    <td>@Item.Exp</td>
+                    <td>@Item.Price.ToString("N0")</td>
+                    <td>@Item.Label</td>
+                    <td>
+                        <button class="btn-sm" onclick="window.location.href='/itemupdate?id=@Item.Id'">Cap Nhat</button>
+                        <button class="btn-sm" onclick="window.location.href='/itemremove?id=@Item.Id'">Xoa</button>
+                    </td>
+                }
+            }
+        </tr>
+    </table>
+
 </section1>
 </body>
