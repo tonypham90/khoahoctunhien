@@ -41,7 +41,7 @@
             <label class="form-label">Ngay san xuat</label><br/>
             <input type="date" name="ItemMfg" required="required" autocomplete="off" minlength="1"/><br/><br/>
             <input type="submit" value="Nhap"/>
-            <button class="btn btn-close" onclick="window.location.href='/store'">Tro ve</button>
+            <button class="btn" onclick="window.location.href='/store'">Tro ve</button>
         </fieldset>
     </form>
 
@@ -56,17 +56,7 @@
                  break;
          }
      }
-    <@{
-     switch (Model.StatusRequestAddItem)
-     {
-        case true:
-             <p class="alert alert-success"><strong>Tao mat hang thanh cong</strong></p>
-        break;
-        case false:
-             <p class="alert-warning">Tao san pham that bai, kiem tra iai du lieu</p>
-        break;
-     }
- }
+    }
 </div>
 </body>
 </html>
