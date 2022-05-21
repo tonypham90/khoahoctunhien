@@ -40,7 +40,7 @@ public static class DataWorkFlow
         return resList;
     }
 
-    public static bool UploadLabel(List<string>? listLabel)
+    public static bool UploadLabel(List<string?> listLabel)
     {
         if (listLabel!.Count==0)
         {
