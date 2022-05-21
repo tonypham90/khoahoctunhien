@@ -7,13 +7,9 @@ public class SolvingItem
 {
     public static bool RequestAddItem(StrucItem item)
     {
-        bool isRequestGood = false ;
         List<StrucItem> listItem = DataWorkFlow.DownloadListItem();
-        if (isRequestGood)
-        {
-            listItem.Add(item);
-            isRequestGood = DataWorkFlow.UploadItemList(listItem);
-        }
-        return isRequestGood;
+        listItem.Add(item);
+        return DataWorkFlow.UploadItemList(listItem);
+        
     }
 }

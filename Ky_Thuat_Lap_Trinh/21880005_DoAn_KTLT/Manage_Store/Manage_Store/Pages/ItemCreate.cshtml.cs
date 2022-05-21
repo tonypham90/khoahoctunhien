@@ -9,9 +9,11 @@ namespace Manage_Store.Pages;
 public class ItemCreate : PageModel
 {
 
-    public List<string> ListLabel;
+    public List<string> ListLabel = DataWorkFlow.DownloadListLabel();
     public bool StatusRequestAddItem;
-    public string ItemId { get; set; }
+    [BindProperty] 
+    public string Notification { get; set; }
+    public string ItemId = ManipulateFunction.CreateItemId();
     [BindProperty]
     public string ItemName { get; set; }
     [BindProperty]
@@ -30,16 +32,14 @@ public class ItemCreate : PageModel
     
     public void OnGet()
     {
-        ItemId = ManipulateFunction.CreateItemId();
-        ListLabel = new List<string>();
-        List<string> choose = DataWorkFlow.DownloadListLabel();
-        ListLabel = choose;
+        // ItemId = ManipulateFunction.CreateItemId();
         ItemName = String.Empty;
         ItemManu = String.Empty;
         ItemLabel = String.Empty;
         ItemPrice = 0;
         ItemExp = DateTime.Today;
         ItemMfg = DateTime.Today;
+        Notification = String.Empty;
 
     }
 
@@ -56,5 +56,14 @@ public class ItemCreate : PageModel
         newItem.Mfg = DateManipulate.ConvertDatetoString(ItemMfg);
         newItem.Price = ItemPrice;
         StatusRequestAddItem = SolvingItem.RequestAddItem(newItem);
+        switch (StatusRequestAddItem)
+        {
+            case true:
+                Notification = $"Mat hang da duoc tao thanh cong";
+                break;
+            case false:
+                Notification = $"That bai, Kiem tra lai thong tin mat hang duoc nhap vao";
+                break;
+        }
     }
 }

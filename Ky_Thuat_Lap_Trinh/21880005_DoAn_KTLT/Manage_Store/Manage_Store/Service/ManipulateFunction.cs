@@ -9,7 +9,7 @@ public class ManipulateFunction
     {
         List<StrucItem> currentListItem = DataWorkFlow.DownloadListItem();
         string? id = String.Empty;
-        List<string?> currentIdList = new List<string?>();
+        List<string> currentIdList = new List<string>();
         foreach (StrucItem item in currentListItem)
         {
             currentIdList.Add(item.Id);
