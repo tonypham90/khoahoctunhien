@@ -8,11 +8,11 @@ namespace Manage_Store.Pages;
 
 public class LabelRemove : PageModel
 {
-    public string Notification { get; set; }
+    public string? Notification { get; set; }
     [BindProperty(SupportsGet = true)]
-    public string label { get; set; }
+    public string? Label { get; set; }
     [BindProperty]
-    public string TargetLabel { get; set; }
+    public string? TargetLabel { get; set; }
     
     public void OnGet()
     {
@@ -21,7 +21,7 @@ public class LabelRemove : PageModel
 
     public void OnPost()
     {
-        TargetLabel = label;
+        TargetLabel = Label;
         Notification = SolvingItemLabel.RemoveLabel(TargetLabel);
     }
         
