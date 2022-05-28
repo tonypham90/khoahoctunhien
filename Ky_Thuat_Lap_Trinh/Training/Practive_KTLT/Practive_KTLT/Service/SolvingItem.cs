@@ -5,18 +5,39 @@ namespace Practive_KTLT.Service;
 
 public class SolvingItem
 {
-    private static DateTime DateTime_Lowbound = new DateTime(1900,1,1);
+    private static readonly DateTime DateTimeLowBound = new DateTime(1900,1,1);
     public static bool CreateItem(Item product)
     {
         if (string.IsNullOrWhiteSpace(product.Name)||
             string.IsNullOrWhiteSpace(product.Type)||
             product.Price<0||
-            product.Exp<DateTime_Lowbound||product.Mfg<DateTime_Lowbound||
+            product.Exp<DateTimeLowBound||product.Mfg<DateTimeLowBound||
             product.Exp<product.Mfg)
         {
             return false;
         }
 
-        return Store_Item.Add_Item(product);
+        return StoreItem.Add_Item(product);
+    }
+
+    public static List<Item> SearchKeyWordItems(string keyWord)
+    {
+        
+        List<Item> resList = new List<Item>();
+        List<Item> storeList = StoreItem.DownloadItemData();
+        if (string.IsNullOrEmpty(keyWord))
+        {
+            resList = storeList;
+            return resList;
+        }
+        foreach (Item item in storeList)
+        {
+            if (Function.IsTextContainChar(keyWord,item.Name))
+            {
+                resList.Add(item);
+            }
+        }
+
+        return resList;
     }
 }

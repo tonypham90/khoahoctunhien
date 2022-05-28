@@ -12,9 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DAL" />
       <Folder Include="DATA" />
-      <Folder Include="Service" />
     </ItemGroup>
 
 </Project>
