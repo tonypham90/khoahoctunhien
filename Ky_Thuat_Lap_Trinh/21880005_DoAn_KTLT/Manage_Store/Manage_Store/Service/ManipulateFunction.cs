@@ -5,10 +5,10 @@ namespace Manage_Store.Service;
 
 public class ManipulateFunction
 {
-    public static string? CreateItemId()
+    public static string CreateItemId()
     {
         List<StrucItem> currentListItem = DataWorkFlow.DownloadListItem();
-        string? id = String.Empty;
+        string id = String.Empty;
         List<string> currentIdList = new List<string>();
         foreach (StrucItem item in currentListItem)
         {

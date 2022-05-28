@@ -9,7 +9,7 @@ public static class DataWorkFlow
     private static readonly DirectoryInfo DirectoryInfo = new DirectoryInfo(CurrentDir);
     private static readonly FileInfo ItemLabelList = new FileInfo("DataLabel.json");
     private static readonly FileInfo ImportRecord = new FileInfo("DataImportHistory.json");
-    public static FileInfo SaleRecord { get; } = new FileInfo("DataSaleHistory.json");
+    private static FileInfo SaleRecord { get; } = new FileInfo("DataSaleHistory.json");
     private static readonly FileInfo ItemStore = new FileInfo("DataStore.json");
     
     //space for label

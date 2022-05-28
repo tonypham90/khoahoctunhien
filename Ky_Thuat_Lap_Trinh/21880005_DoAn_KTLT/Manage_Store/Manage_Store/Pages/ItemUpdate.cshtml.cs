@@ -10,11 +10,12 @@ public class ItemUpdate : PageModel
 {
 
     public List<string> ListLabel = DataWorkFlow.DownloadListLabel();
-    public bool StatusRequestAddItem;
-    [BindProperty]
+    public List<StrucItem> ListItems = DataWorkFlow.DownloadListItem();
+    public List<string> ItemlabelList = new List<string>();
+    public bool StatusUpdateData;
     public string Notification { get; set; }
     [BindProperty(SupportsGet = true)]
-    public string ItemId = ;
+    public string id { get; set; }
     [BindProperty]
     public string ItemName { get; set; }
     [BindProperty]
@@ -34,36 +35,47 @@ public class ItemUpdate : PageModel
     public void OnGet()
     {
         // ItemId = ManipulateFunction.CreateItemId();
-        ItemName = String.Empty;
-        ItemManu = String.Empty;
-        ItemLabel = String.Empty;
-        ItemPrice = 0;
-        ItemExp = DateTime.Today;
-        ItemMfg = DateTime.Today;
+        StrucItem item = SolvingItem.FindItem(id, ListItems);
+        ItemlabelList.Add(item.Label);
+        foreach (string s in ListLabel)
+        {
+            if (!ItemlabelList.Contains(s))
+            {
+                ItemlabelList.Add(s);
+            }
+        }
+        ItemName = item.Name;
+        ItemManu = item.Manufacture;
+        ItemQty = item.Qty;
+        ItemLabel = item.Label;
+        ItemPrice = item.Price;
+        ItemExp = DateManipulate.ConvertStringtoDateTime(item.Exp);
+        ItemMfg = DateManipulate.ConvertStringtoDateTime(item.Mfg);
         Notification = String.Empty;
-
     }
 
     public void OnPost()
     {
-        StrucItem newItem = new StrucItem();
+        StrucItem itemUpdated = new StrucItem();
+        itemUpdated.Id = id;
+        itemUpdated.Name = ItemName;
+        itemUpdated.Manufacture = ItemManu;
+        itemUpdated.Qty = ItemQty;
+        itemUpdated.Label = ItemLabel;
+        itemUpdated.Exp = DateManipulate.ConvertDatetoString(ItemExp);
+        itemUpdated.Mfg = DateManipulate.ConvertDatetoString(ItemMfg);
+        itemUpdated.Price = ItemPrice;
         
-        newItem.Id = ItemId;
-        newItem.Name = ItemName;
-        newItem.Manufacture = ItemManu;
-        newItem.Qty = ItemQty;
-        newItem.Label = ItemLabel;
-        newItem.Exp = DateManipulate.ConvertDatetoString(ItemExp);
-        newItem.Mfg = DateManipulate.ConvertDatetoString(ItemMfg);
-        newItem.Price = ItemPrice;
-        StatusRequestAddItem = SolvingItem.RequestAddItem(newItem);
-        switch (StatusRequestAddItem)
+        
+        StatusUpdateData = SolvingItem.RequestUpdateItem(id,itemUpdated);
+        switch (StatusUpdateData)
         {
             case true:
-                Notification = $"Mat hang da duoc tao thanh cong";
+                Notification = $"Cap nhat thanh cong";
+                Response.Redirect("/index");
                 break;
             case false:
-                Notification = $"That bai, Kiem tra lai thong tin mat hang duoc nhap vao";
+                Notification = $"Cap nhat That bai- kiem tra lai thong tin";
                 break;
         }
     }

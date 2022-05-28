@@ -15,18 +15,18 @@ public class SolvingItemLabel
         return $"Loai hang da ton tai";
     }
 
-    public static List<string?>? CurrentLabel()
+    public static List<string> CurrentLabel()
     {
         return DataWorkFlow.DownloadListLabel();
     }
 
-    public static string? RemoveLabel(string? labelTarget)
+    public static string RemoveLabel(string labelTarget)
     {
-        List<string?>? currentLabelList = DataWorkFlow.DownloadListLabel();
-        List<string?> newLabeList = new List<string?>();
+        List<string> currentLabelList = DataWorkFlow.DownloadListLabel();
+        List<string> newLabeList = new List<string>();
         labelTarget = labelTarget.ToUpper();
         bool Iscontain = currentLabelList!.Contains(labelTarget);
-        foreach (string? label in currentLabelList)
+        foreach (string label in currentLabelList)
         {
             if (label!=labelTarget)
             {  
@@ -43,8 +43,8 @@ public class SolvingItemLabel
 
     public static string UpdateLabel(string? oldLabel, string? newLabel)
     {
-        List<string?>? currentLabelList = DataWorkFlow.DownloadListLabel();
-        List<string?> newLabeList = new List<string?>();
+        List<string> currentLabelList = DataWorkFlow.DownloadListLabel();
+        List<string> newLabeList = new List<string>();
         newLabel = newLabel!.ToUpper();
         int countitemUpdated;
         if (currentLabelList!.Contains(newLabel))
@@ -54,7 +54,7 @@ public class SolvingItemLabel
             //
             return $"Gia tri Nhan Hang moi da ton tai. {countitemUpdated} san pham tuong ung duoc thay doi,\n nhan hang moi khong them vao";
         }
-        foreach (string? elementLabel in currentLabelList)
+        foreach (string elementLabel in currentLabelList)
         {
             if (elementLabel==oldLabel)
             {

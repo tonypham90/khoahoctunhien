@@ -15,16 +15,29 @@ public class IndexModel : PageModel
         _logger = logger;
     }
 
-    public List<StrucItem> ItemsinStore = SolvingItem.RequestLoadStore();
+    public List<StrucItem> ItemsInStore = SolvingItem.RequestLoadStore();
     public List<StrucItem> ItemsShow { get; set; }
+    [BindProperty]
+    public string ChoiceFunc { get; set; }
+    [BindProperty]
+    public string Keyword { get; set; }
 
     public void OnGet()
     {
-        ItemsShow = ItemsinStore;
+        ChoiceFunc = String.Empty;
+        Keyword = String.Empty;
+        ItemsShow = ItemsInStore;
     }
 
     public void OnPost()
     {
-        
+        if (string.IsNullOrEmpty(Keyword))
+        {
+            ItemsShow = ItemsInStore;
+        }
+        else
+        {
+            ItemsShow = SolvingItem.FinalistItems(Keyword, ChoiceFunc);
+        }
     }
 }
