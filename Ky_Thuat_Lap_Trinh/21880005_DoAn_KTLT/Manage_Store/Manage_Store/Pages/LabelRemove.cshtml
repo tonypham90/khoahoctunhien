@@ -1,4 +1,5 @@
 @page
+@using Manage_Store.Entity
 @model Manage_Store.Pages.LabelRemove
 
 @{
@@ -13,10 +14,48 @@
 </head>
 <body>
 <div>
+    Cac mat hang se bi xoa:
+    <section1>
+    <table title="San Pham trong kho" class="table">
+            <h1 class="align-self-xxl-center"> Danh Sach San Pham</h1>
+            <tr class="text-center table-primary">
+                <th>Ma san pham</th>
+                <th>Ten</th>
+                <th>Cty San Xuat</th>
+                <th>So luong</th>
+                <th>Ngay san xuat</th>
+                <th>Han su dung</th>
+                <th>Gia</th>
+                <th>Loai</th>
+                <th>Chuc Nang</th>
+            </tr>
+    
+                @{
+                    foreach (StrucItem Item in @Model.removeItemsList)
+                    {
+                        <tr>
+                            <td>@Item.Id</td>
+                            <td>@Item.Name</td>
+                            <td>@Item.Manufacture</td>
+                            <td>@Item.Qty.ToString("N0")</td>
+                            <td>@Item.Mfg</td>
+                            <td>@Item.Exp</td>
+                            <td>@Item.Price.ToString("N0")</td>
+                            <td>@Item.Label</td>
+                            <td>
+                                <button class="btn btn-outline-secondary" onclick="window.location.href='/ImportNew?ItemId=@Item.Id'">Nhap Hang</button>
+                                <button class="btn btn-outline-secondary" onclick="window.location.href='/itemupdate?id=@Item.Id'">Cap Nhat</button>
+                                <button class="btn btn-outline-secondary" onclick="window.location.href='/itemremove?id=@Item.Id'">Xoa</button>
+                            </td>
+                        </tr>
+                    }
+                }
+        </table>
+    </section1>
     <form method="post">
-        <label class="text-warning">Ten Loai hang can xoa</label><br/>
-        <input class="input-group-text" type="text" name="RemoveLabel" value="@Model.Label"/>
-        <input class="text-dark" type="submit" value="Xoa"/><button class="text-dark" type="button" value="Return" onclick="" ><a href="/LabelCreate">Ve danh Sach Mat Hang</a></button>
+        <label class="text-warning">Loai Hang can xoa: (Luu Y: Khi xoa se xoa theo cac mat hang co cung loai hang nay)</label><br/>
+        <input type="text" name="RemoveLabel" value="@Model.Label" readonly="readonly"/>
+        <input type="submit" value="Xoa"/><button type="button" value="Return" onclick="window.location.href='/lablecreate'">Ve danh Sach Mat Hang</button>
     </form>
     @Model.Notification
 </div>

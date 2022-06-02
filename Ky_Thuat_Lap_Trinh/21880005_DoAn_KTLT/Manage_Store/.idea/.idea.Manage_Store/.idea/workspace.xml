@@ -9,13 +9,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0afc7bb3-b993-4c2f-9bc5-101cd66af73e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../.idea/.idea.khoahoctunhien.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/.idea.khoahoctunhien.dir/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Manage_Store/Pages/ImportNew.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Manage_Store/Pages/ImportNew.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Manage_Store/Pages/Importremove.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Manage_Store/Pages/Importremove.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Manage_Store/Pages/Importupdate.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Manage_Store/Pages/Importupdate.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Manage_Store/Pages/Summary.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Manage_Store/Pages/Summary.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Manage_Store/Service/CaculateSummary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/DAL/DataWorkFlow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/DAL/DataWorkFlow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/DataImportHistory.json" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/DataImportHistory.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/DataLabel.json" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/DataLabel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/DataStore.json" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/DataStore.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Entity/Item.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Entity/StrucItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Entity/StrucItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Manage_Store.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Manage_Store.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/Import.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/Import.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/Import.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/Import.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/Index.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/ItemRemove.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/ItemRemove.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/ItemUpdate.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/ItemUpdate.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/ItemUpdate.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/ItemUpdate.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/LabelRemove.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/LabelRemove.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/LabelRemove.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/LabelRemove.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/LabelUpdate.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/LabelUpdate.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/Sale.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/Sale.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Service/ImportStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Service/ImportStore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Service/ManipulateFunction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Service/ManipulateFunction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Service/SolvingItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Service/SolvingItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/Service/SolvingItemLabel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/Service/SolvingItemLabel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/DataImportHistory.json" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/DataImportHistory.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/DataLabel.json" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/DataLabel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/DataStore.json" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/DataStore.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/Manage_Store.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/Manage_Store.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/Manage_Store.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/bin/Debug/net6.0/Manage_Store.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/Manage_Store.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/Manage_Store.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/Manage_Store.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/Manage_Store.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/Manage_Store.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/Manage_Store.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/Manage_Store.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/Manage_Store.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/ref/Manage_Store.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/ref/Manage_Store.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/refint/Manage_Store.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/obj/Debug/net6.0/refint/Manage_Store.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Manage_Store/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage_Store/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/Manage_Store/obj/staticwebassets.pack.sentinel" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27a67ce821439fc8643e8eaab7877397d8fb63e63ce24e6455cc99ad9e83/PageHandlerPageFilter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/41298da3c3e55373c29a4bc8510f24f0b76312d268e46de57c12fed49e5a97/PageActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/44b1161d866765c6ec11ee821b79d9bff8660b65aef1d48c273eb26a29d4a/ResourceInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71a968c46ba430dbe5e14b270739d338788e9ae6252461c5e5c6f6df8851f6/EndpointMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81ed923beee3e61bb5e677c9f83e9dba9966e69bb9446e3d52e5839886cb4a5/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/85efb88f31f613caf9a2811863b320cb77bfd4d42f65181643278a7bcf8ce580/PageModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf974b051145475a8bd129bd22af05d2cd682561577f731e61d50e678a4b81b/PageRequestDelegateFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d4f98ebdd878db4fbd98872756eb7be6ad9e468fe5cd6b16385d8c4993109a/List.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="29sgLtwedFYvaHr8ht6AAzdL9yZ" />
   <component name="ProjectViewState">
@@ -35,6 +96,9 @@
   }
 }</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Manage_Store">
+    <configuration name="Manage_Store JavaScript" type="JavascriptDebugType" engineId="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" uri="https://localhost:7089">
+      <method v="2" />
+    </configuration>
     <configuration name="Manage_Store" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Manage_Store/Manage_Store.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
@@ -42,6 +106,7 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -65,6 +130,11 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.Manage_Store" />
+      <item itemvalue=".NET Launch Settings Profile.Manage_Store: IIS Express" />
+      <item itemvalue="JavaScript Debug.Manage_Store JavaScript" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -75,6 +145,11 @@
       <option name="presentableId" value="Default" />
       <updated>1653907155635</updated>
       <workItem from="1653907160226" duration="605000" />
+      <workItem from="1653930255792" duration="5660000" />
+      <workItem from="1653951150420" duration="5058000" />
+      <workItem from="1653956228068" duration="5022000" />
+      <workItem from="1653962071302" duration="24343000" />
+      <workItem from="1653994079218" duration="407000" />
     </task>
     <servers />
   </component>
@@ -83,7 +158,67 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="04d7aa38-db2e-4413-b24e-076f047422a6">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/tonypham/Documents/GitHub/khoahoctunhien/Ky_Thuat_Lap_Trinh/21880005_DoAn_KTLT/Manage_Store/Manage_Store/Entity" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="04d7aa38-db2e-4413-b24e-076f047422a6" value="TOOL_WINDOW" />
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Manage_Store/Pages/Importremove.cshtml.cs</url>
+          <line>25</line>
+          <properties documentPath="$PROJECT_DIR$/Manage_Store/Pages/Importremove.cshtml.cs" initialLine="25" containingFunctionPresentation="method 'OnPost'">
+            <startOffsets>
+              <option value="693" />
+            </startOffsets>
+            <endOffsets>
+              <option value="762" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

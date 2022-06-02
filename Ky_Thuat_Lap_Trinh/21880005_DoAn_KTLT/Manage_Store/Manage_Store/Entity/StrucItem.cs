@@ -13,18 +13,8 @@ public struct StrucItem
 
 public struct ImportRecord
 {
-    public string Date, ImportId,ItemId;
-    public int Qty;
-}
-
-public struct BillSale
-{
-    public string SaleId;
-    public string SaleDate;
-}
-public struct DetailBill
-{
-    public string SaleId;
+    public string Date;
+    public string? ImportId;
     public string ItemId;
-    public int Qty;
+    public int ImportQty;
 }

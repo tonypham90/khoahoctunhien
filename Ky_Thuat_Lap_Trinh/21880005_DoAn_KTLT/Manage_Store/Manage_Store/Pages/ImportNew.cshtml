@@ -1,45 +1,46 @@
 @page
+@using Manage_Store.Entity
 @model Manage_Store.Pages.ImportNew
 
 @{
-    ViewData["Title"] = "Nhap Hang moi";
+    ViewData["Title"] = "Tao don hang moi";
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title>Nhap Hang moi</title>
+    <title>Tao don hang moi</title>
+<h4>Ma don Nhap Kho:<strong>#@Model.NewImportId</strong></h4>
 </head>
 <body>
-<h1>Ma don nhap kho: #@Model.ImportId</h1>
 <div>
-    Thong tin mat hang:<br/>
-    Ten san pham: @Model.CurrentItem.Name <br/>
-    Nha san xuat: @Model.CurrentItem.Manufacture<br/>
-    So luong trong kho: @Model.CurrentItem.Qty.ToString("0")<br/>
-    <form method="post">
-        <label for="Nhap Hang">So luong nhap kho</label>
-        <input type="number" min="1" max="9999" value="ImportValue"/><br/>
-        <label for = "Ngay nhap"></label>
-        <input type="submit"/>
-    </form>
-    <button class="btn-outline-secondary" onclick="window.location.href='/Index'">Tro ve</button>
-</div>
-<div class="alert-warning">@Model.Notification</div>
-@{
-        if (Model.RequestStatus)
+    Thong tin san pham:<br/>
+    Ten: @Model.ItemName<br/>
+    Cty San suat: @Model.ItemManuf<br/>
+    So luong trong kho: @Model.ItemQty.ToString("0")
+    <section>
+        <form method="post">
+            <label>Ngay Nhap kho</label>
+            <input type="date" name="ImportDate" required="required"/><br/>
+            <label>So luong:</label>
+            <input type="number" name="ImportQty" min="0" step="1" required="required"/><br/>
+            <input type="submit" value="Nhap kho"/> <input type="button" onclick="window.location.href='/index'" value="tro ve"/>
+        </form></section>
+    @{
+        if (string.IsNullOrEmpty(@Model.Notification))
         {
-            <p class="alert alert-success">
-                <strong>Cap Nhat Thanh Cong</strong>
-            </p>
-        }
-        else
-        {
-            <p class="alert-warning">
-                <strong>Cap nhat that bai: kiem tra lai</strong>
-            </p>
+            switch (@Model.Status)
+            {
+                case true:
+                    Response.Redirect("/index");
+                    break;
+                case false:
+                    <p class="alert-warning">@Model.Notification</p>;
+                    break;
+            }
         }
     }
+</div>
 </body>
 </html>

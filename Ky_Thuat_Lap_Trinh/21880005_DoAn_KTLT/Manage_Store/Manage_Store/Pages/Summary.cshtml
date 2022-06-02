@@ -1,0 +1,78 @@
+@page
+@using Manage_Store.Service
+@using Manage_Store.Entity
+@model Manage_Store.Pages.Summary
+
+@{
+    ViewData["title"] = "Thong ke kho hang";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <section>
+        <h2>Thong ke hang hoa theo loai hang</h2>
+        <table class="table">
+            <tr>
+                <th>Loai Hang</th>
+                <th>So luong</th>
+            </tr>
+           
+                @{
+                    foreach (string s in @Model.labelList)
+                    {
+                        <tr>
+                            <td>@s</td>
+                            <td>@CaculateSummary.countItemLabel(s).ToString("0")</td>
+                            </tr>
+                    }
+                }
+           
+        </table>
+    </section>
+    <br/><br/>
+    <section1>
+        <table title="San Pham Qua hang Su dung" class="table">
+            <h2 class="align-self-xxl-center"> Danh Sach San Pham Qua hang su dung</h2>
+            <tr class="text-center table-primary">
+                <th>Ma san pham</th>
+                <th>Ten</th>
+                <th>Cty San Xuat</th>
+                <th>So luong</th>
+                <th>Ngay san xuat</th>
+                <th>Han su dung</th>
+                <th>Gia</th>
+                <th>Loai</th>
+                <th>Chuc Nang</th>
+            </tr>
+            
+                @{
+                    foreach (StrucItem Item in @Model.listItemOverDue)
+                    {
+                        <tr>
+                            <td>@Item.Id</td>
+                            <td>@Item.Name</td>
+                            <td>@Item.Manufacture</td>
+                            <td>@Item.Qty.ToString("N0")</td>
+                            <td>@Item.Mfg</td>
+                            <td>@Item.Exp</td>
+                            <td>@Item.Price.ToString("N0")</td>
+                            <td>@Item.Label</td>
+                            <td>
+                                <button class="btn btn-outline-secondary" onclick="window.location.href='/ImportNew?ItemId=@Item.Id'">Nhap Hang</button>
+                                <button class="btn btn-outline-secondary" onclick="window.location.href='/itemupdate?id=@Item.Id'">Cap Nhat</button>
+                                <button class="btn btn-outline-secondary" onclick="window.location.href='/itemremove?id=@Item.Id'">Xoa</button>
+                            </td>
+                        </tr>
+                    }
+                }
+        </table>
+    </section1>
+</div>
+</body>
+</html>

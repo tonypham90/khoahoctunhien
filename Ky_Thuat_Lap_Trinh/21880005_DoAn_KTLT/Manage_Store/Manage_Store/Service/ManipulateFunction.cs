@@ -7,7 +7,7 @@ public class ManipulateFunction
 {
     public static string CreateItemId()
     {
-        List<StrucItem> currentListItem = DataWorkFlow.DownloadListItem();
+        List<StrucItem>? currentListItem = DataWorkFlow.DownloadListItem();
         string id = String.Empty;
         List<string> currentIdList = new List<string>();
         foreach (StrucItem item in currentListItem)
@@ -21,22 +21,22 @@ public class ManipulateFunction
         }
         return id;
     }
-
-    public static string CreateImportId()
+    public static string? NewImportId()
     {
-        List<ImportRecord> currentListdDataRecordImports = DataWorkFlow.DownloadDataRecordImports();
-        string id = String.Empty;
-        List<string> currentIdList = new List<string>();
-        foreach (ImportRecord item in currentListdDataRecordImports)
+        List<ImportRecord>? currentList = DataWorkFlow.LoadImportHistory();
+        string? id = string.Empty;
+        List<string?> currentIdList = new List<string?>();
+        foreach (ImportRecord record in currentList)
         {
-            currentIdList.Add(item.ImportId);
+            currentIdList.Add(record.ImportId);
         }
-        while (string.IsNullOrEmpty(id)|| currentIdList.Contains(id))
+
+        while (string.IsNullOrEmpty(id)||currentIdList.Contains(id))
         {
             Random ran = new Random();
-            id = ran.Next(9999).ToString("0000");
+            id =$"I{ran.Next(9999):0000}" ;
         }
+
         return id;
     }
-    
 }

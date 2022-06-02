@@ -9,16 +9,14 @@ public static class DataWorkFlow
     private static readonly DirectoryInfo DirectoryInfo = new DirectoryInfo(CurrentDir);
     private static readonly FileInfo ItemLabelList = new FileInfo("DataLabel.json");
     private static readonly FileInfo ImportRecord = new FileInfo("DataImportHistory.json");
-    private static readonly FileInfo ImportDetail = new FileInfo("DataImportDetail.json");
-    private static readonly FileInfo SaleRecord = new FileInfo("DataSaleHistory.json");
-    private static readonly FileInfo BillDetail = new FileInfo("DataBillDetail.json");
+    private static FileInfo SaleRecord { get; } = new FileInfo("DataSaleHistory.json");
     private static readonly FileInfo ItemStore = new FileInfo("DataStore.json");
     
     //space for label
-    public static bool AddNewLabel(string newLabel)
+    public static bool AddNewLabel(string? newLabel)
     {
         List<string> currentLabel = DownloadListLabel();
-        if (!string.IsNullOrEmpty(newLabel))
+        if (newLabel != null)
         {
             newLabel = newLabel.ToUpper();
             
@@ -61,9 +59,9 @@ public static class DataWorkFlow
     //end space for label
 
     //Store info
-    public static List<StrucItem> DownloadListItem()
+    public static List<StrucItem>? DownloadListItem()
     {
-        List<StrucItem> resList = new List<StrucItem>();
+        List<StrucItem>? resList = new List<StrucItem>();
         StreamReader fileReader = new StreamReader(ItemStore.FullName);
         string jsonstring = fileReader.ReadToEnd();
         fileReader.Close();
@@ -75,7 +73,7 @@ public static class DataWorkFlow
         return resList;
     }
     
-    public static bool UploadItemList(List<StrucItem> listItems)
+    public static bool UploadItemList(List<StrucItem>? listItems)
     {
         if (listItems.Count==0)
         {
@@ -91,26 +89,18 @@ public static class DataWorkFlow
     //End Of store info
 
     //import store
-    public static List<ImportRecord>? DownloadDataRecordImports() //Get data from source to user
+    public static List<ImportRecord>? LoadImportHistory()
     {
-        List<ImportRecord>? resList;
         StreamReader fileReader = new StreamReader(ImportRecord.FullName);
-        string jsonstring = fileReader.ReadToEnd();
+        string Jsonstring = fileReader.ReadToEnd();
         fileReader.Close();
-        resList = JsonConvert.DeserializeObject<List<ImportRecord>>(jsonstring);
-        return resList;
+        return JsonConvert.DeserializeObject<List<ImportRecord>>(Jsonstring);
     }
 
-    public static bool UploadImportRecord(List<ImportRecord> historyImports)
+    public static bool UploadImportHistory(List<ImportRecord> Historylist)
     {
-        if (historyImports.Count == 0)
-        {
-            return false;
-        }
-
         StreamWriter fileWriter = new StreamWriter(ImportRecord.FullName);
-        string jsonstring = JsonConvert.SerializeObject(historyImports);
-        fileWriter.Write(jsonstring);
+        fileWriter.Write(JsonConvert.SerializeObject(Historylist));
         fileWriter.Close();
         return true;
     }
