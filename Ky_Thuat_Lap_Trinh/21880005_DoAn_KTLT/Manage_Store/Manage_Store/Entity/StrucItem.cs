@@ -9,6 +9,7 @@ public struct StrucItem
     public int Qty;
     public int Price;
     public string Exp,Mfg;
+<<<<<<< Updated upstream
 }
 
 public struct ImportRecord
@@ -17,4 +18,6 @@ public struct ImportRecord
     public string? ImportId;
     public string ItemId;
     public int ImportQty;
+=======
+>>>>>>> Stashed changes
 }

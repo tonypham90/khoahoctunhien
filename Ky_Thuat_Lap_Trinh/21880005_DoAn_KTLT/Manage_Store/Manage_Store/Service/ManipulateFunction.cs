@@ -21,6 +21,7 @@ public class ManipulateFunction
         }
         return id;
     }
+<<<<<<< Updated upstream
     public static string? NewImportId()
     {
         List<ImportRecord>? currentList = DataWorkFlow.LoadImportHistory();
@@ -39,4 +40,7 @@ public class ManipulateFunction
 
         return id;
     }
+=======
+    
+>>>>>>> Stashed changes
 }

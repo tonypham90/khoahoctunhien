@@ -9,6 +9,14 @@ namespace Manage_Store.Pages;
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
+<<<<<<< Updated upstream
+=======
+
+    public IndexModel(ILogger<IndexModel> logger)
+    {
+        _logger = logger;
+    }
+>>>>>>> Stashed changes
 
     public IndexModel(ILogger<IndexModel> logger)
     {

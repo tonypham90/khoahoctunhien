@@ -9,6 +9,7 @@ namespace Manage_Store.Pages;
 
 public class ImportNew : PageModel
 {
+<<<<<<< Updated upstream
     public static List<StrucItem>? CurrentListItems = DataWorkFlow.DownloadListItem();
     public bool Status;
     public string Notification { get; set; } = string.Empty;
@@ -19,13 +20,30 @@ public class ImportNew : PageModel
     public string ItemManuf { get; set; }
     [BindProperty]
     public int ItemQty { get; set; }
+=======
+    public string Notification = string.Empty;
+    public bool RequestStatus;
+    [BindProperty (SupportsGet = true)]
+    public string ItemId { get; set; }
+    [BindProperty]
+    public int Importvalue { get; set; }
+    public string ImportDate { get; set; }
+    public ImportRecord NewImport;
+
+    public List<StrucItem> CurrentListItems = SolvingItem.RequestLoadStore();
+    public StrucItem CurrentItem { get; set; }
+>>>>>>> Stashed changes
 
     public string? NewImportId = ManipulateFunction.NewImportId();
     [BindProperty]
     public DateTime ImportDate { get; set; }
     [BindProperty]
+<<<<<<< Updated upstream
     public int ImportQty { get; set; }
     
+=======
+    public int ValueImport { get; set; }
+>>>>>>> Stashed changes
     public void OnGet()
     {
         StrucItem currentItem = SolvingItem.FindItem(ItemId, CurrentListItems);

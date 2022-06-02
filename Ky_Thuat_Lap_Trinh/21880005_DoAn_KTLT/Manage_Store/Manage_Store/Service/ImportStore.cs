@@ -1,10 +1,14 @@
+<<<<<<< Updated upstream
 using Manage_Store.DAL;
 using Manage_Store.Entity;
 
+=======
+>>>>>>> Stashed changes
 namespace Manage_Store.Service;
 
 public class ImportStore
 {
+<<<<<<< Updated upstream
     public static bool RequestnewImport(ImportRecord newImportRecord)
     {
         List<ImportRecord>? currentImportRecords = DataWorkFlow.LoadImportHistory();
@@ -132,4 +136,7 @@ public class ImportStore
         statusremoveImportRecord = DataWorkFlow.UploadImportHistory(currentImportRecords);
         return statusupdateItem && statusremoveImportRecord;
     }
+=======
+    
+>>>>>>> Stashed changes
 }

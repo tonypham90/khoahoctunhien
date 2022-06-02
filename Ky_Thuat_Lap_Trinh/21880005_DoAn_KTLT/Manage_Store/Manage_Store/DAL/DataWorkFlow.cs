@@ -89,6 +89,7 @@ public static class DataWorkFlow
     //End Of store info
 
     //import store
+<<<<<<< Updated upstream
     public static List<ImportRecord>? LoadImportHistory()
     {
         StreamReader fileReader = new StreamReader(ImportRecord.FullName);
@@ -104,6 +105,8 @@ public static class DataWorkFlow
         fileWriter.Close();
         return true;
     }
+=======
+>>>>>>> Stashed changes
 
     //End Import
 
